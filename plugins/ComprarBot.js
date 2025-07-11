@@ -8,8 +8,8 @@ global.ComprarBot = `
 〔 *TIPOS DE COMPRA* 〕
 
 *BOT PARA GRUPO* :
-> wa.me/18293142989
+> wa.me/50764735869`;
 
 *BOT PERZONALIZADO* :
-> wa.me/18293142989
+> wa.me/50764735869
 `;
