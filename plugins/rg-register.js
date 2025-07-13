@@ -63,7 +63,7 @@ let handler = async function (m, { conn, text, args, usedPrefix, command }) {
         contextInfo: {
             externalAdReply: {
                 title: '⊱『𝗡𝗨𝗘𝗩𝗢 𝗥𝗘𝗚𝗜𝗦𝗧𝗥𝗢』⊰',
-                thumbnailUrl: 'https://qu.ax/UMbGb.jpg',
+                thumbnailUrl: 'https://files.catbox.moe/1jdv8y.jpg',
                 mediaType: 1,
                 renderLargerThumbnail: true
             }
@@ -92,7 +92,7 @@ let chtxt = `👤 *𝖴𝗌uario* » ${m.pushName || 'Anónimo'}
 🩵 *𝖨𝖣 𝖽𝖾 𝗋𝖾𝗀𝗂𝗌𝗍𝗋𝗈* »
 ⤷ ${sn}`;
 
-    let channelID = '120363402615935849@newsletter';
+    let channelID = '120363402552103115@newsletter';
         await conn.sendMessage(channelID, {
         text: chtxt,
         contextInfo: {
