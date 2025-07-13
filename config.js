@@ -18,7 +18,7 @@ global.botNumber = '' //Ejemplo: 525218138672
 global.owner = [
   ['18293142989', '🩵 𝗖𝗿𝗲𝗮𝗱𝗼𝗿 🩵', true],
   ['50764735869', '𝙃𝙖𝙧𝙤𝙡𝙙 𝙍𝙃𝙇𝙈+𝟱𝟳', true],
-  ['527222518356', 'Félix México', true]
+  ['573133374132', '💖💝 Y⃟o⃟ S⃟o⃟y⃟ Y⃟o⃟ 💝 💖 ', true]
 ]
 
 //*─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─*
@@ -53,15 +53,15 @@ global.author = `𝐒𝐭𝐢𝐜𝐤𝐞𝐫𝐬 𝐁𝐲 𝙃𝙖𝙧𝙤𝙡�
 global.wm = '⏤͟͞ू⃪  ̸̷͢𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝙃𝙖𝙧𝙤𝙡𝙙 𝙍𝙃𝙇𝙈+𝟱𝟳';
 global.titulowm = '⏤͟͞ू⃪𝐃𝐞𝐧𝐣𝐢 𝐁𖹭t͟ 𝐁𝐨𝐭𑁯ᰍ';
 global.igfg = '𝙃𝙖𝙧𝙤𝙡𝙙 𝙍𝙃𝙇𝙈+𝟱𝟳'
-global.botname = '𝐃𝐞𝐧𝐣𝐢 𝐁𝐨𝐭 𝐌𝐃'
+global.botname = '𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ'
 global.dev = '© ⍴᥆ᥕᥱrᥱძ ᑲᥡ 𝙃𝙖𝙧𝙤𝙡𝙙 𝙍𝙃𝙇𝙈+𝟱𝟳'
-global.textbot = '𝐃𝐞𝐧𝐣𝐢 : 𝙃𝙖𝙧𝙤𝙡𝙙 𝙍𝙃𝙇𝙈+𝟱𝟳'
-global.gt = '͟͞𝐃𝐞𝐧𝐣𝐢';
-global.namechannel = '𝐃𝐞𝐧𝐣𝐢 𝐂𝐡a͟𝐧n͟e͟𝐥𑁯'
+global.textbot = 'shoyo HINATA :𝙃𝙖𝙧𝙤𝙡𝙙 𝙍𝙃𝙇𝙈+𝟱𝟳'
+global.gt = '𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ';
+global.namechannel = 'shoyo 𝐂𝐡a͟𝐧n͟e͟𝐥𑁯'
 
 //*─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─*
 
-global.moneda = 'M500Coins'
+global.moneda = 'Coins'
 
 //• ↳ ◜𝑳𝑰𝑵𝑲𝑺  𝑫𝑬𝒀𝑴𝑶𝑶𝑵 𝑪𝑳𝑼𝑩◞ • 🩵
 global.gp4 = 'https://chat.whatsapp.com/KoJjHo6o3Ew7P5qkjaIh0r' //Grupo Oficial De Makima 
