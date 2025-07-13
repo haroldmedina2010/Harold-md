@@ -13,18 +13,19 @@ let handler = async (m, { conn, args }) => {
   let totalCommands = Object.values(global.plugins).filter((v) => v.help && v.tags).length;  
 
   let images = [
-    'https://qu.ax/lRCWR.jpg',
-    'https://qu.ax/bXinP.jpg',
-    'https://qu.ax/lMRVV.jpg',
-    'https://qu.ax/UMbGb.jpg'
+    'https://qu.ax/QTkuq.jpg',
+    'https://qu.ax/QTkuq.jpg',
+    'https://qu.ax/QTkuq.jpg',
+    'https://qu.ax/QTkuq.jpg'
   ]
   let imgUrl = images[Math.floor(Math.random() * images.length)]  
 
   let txt = `
-¡𝐇𝐨𝐥𝐚! ${name} 𝐒𝐨𝐲 *Denji* ${(conn.user.jid == global.conn.user.jid ? '(OficialBot)' : '(Sub-Bot)')}
+¡𝐇𝐨𝐥𝐚! ${name} 𝐒𝐨𝐲 *𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ* ${(conn.user.jid == global.conn.user.jid ? '(OficialBot)' : '(Sub-Bot)')}
 
 ╔━━ INFO-BOT ━━━━╗
-┃Creador: 𝙃𝙖𝙧𝙤𝙡𝙙 𝙍𝙃𝙇𝙈+𝟱𝟳
+┃Creador: 𓆩‌۫᷼ ִֶָღܾ݉͢𝐇ꪖ𝐫o͟𝐥𝐝𓆪
+
 ┃Tiempo activo: ${uptime}
 ┃Comandos: ${totalCommands}
 ┃Registros: ${totalreg}
