@@ -2,8 +2,8 @@ import { WAMessageStubType } from '@whiskeysockets/baileys'
 import fetch from 'node-fetch'
 
 const channelRD = {
-  id: "120363402362088282@newsletter", // Cambia por tu canal si quieres
-  name: "⁖ฺ۟̇࣪·֗٬̤⃟🔥𝐃𝐞𝐧𝐣𝐢 ✰ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⬣"
+  id: "120363402552103115@newsletter", // Cambia por tu canal si quieres
+  name: "⁖ฺ۟̇࣪·֗٬̤⃟ hinata ✰ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⬣"
 };
 
 export async function before(m, { conn, participants, groupMetadata }) {
@@ -34,7 +34,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
     },
     externalAdReply: {
       title: channelRD.name,
-      body: '⁖ฺ۟̇࣪·֗٬̤⃟🔥𝐃𝐞𝐧𝐣𝐢 ✰ 𝐁𝐨𝐭 𝐌𝐃 ⬣',
+      body: '⁖ฺ۟̇࣪·֗٬̤⃟ shoyop hinata ✰ 𝐁𝐨𝐭 𝐌𝐃 ⬣',
       thumbnailUrl: thumbnailUrl,
       mediaType: 1,
       renderLargerThumbnail: false,
@@ -92,6 +92,6 @@ No dudes en presentarte y contarnos un poco sobre ti. ¡Vamos a hacer que esto s
     await conn.sendMessage(m.chat, { 
       text: 'Espero y el usuario vuelva pronto.', 
       contextInfo: contextNewsletter
-    }, { quoted: quotedMsg('Nunca dejare de amar a Makima') });
+    }, { quoted: quotedMsg('adios') });
   }
 }
