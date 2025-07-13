@@ -98,7 +98,7 @@ let chtxt = `👤 *𝖴𝗌uario* » ${m.pushName || 'Anónimo'}
         contextInfo: {
             externalAdReply: {
                 title: "【 🩵 𝐍𝐔𝐄𝐕𝐎 𝐑𝐄𝐆𝐈𝐒𝐓𝐑𝐎 🩵 】",
-                body: '𝚁𝚎𝚐𝚒𝚜𝚝𝚛𝚘𝚜 shoyo 1.0 𝙱𝚘𝚝',
+                body: '𝚁𝚎𝚐𝚒𝚜𝚝𝚛𝚘𝚜 𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 1.0 𝙱𝚘𝚝',
                 thumbnailUrl: perfil,
                 sourceUrl: redes,
                 mediaType: 1,
