@@ -9,10 +9,10 @@ let handler = async (m, { conn }) => {
   let nombreCreator = '✰ 𝐏𝐫𝐨𝐩𝐢𝐞𝐭𝐚𝐫𝐢𝐨 ✰'
   let canal = 'https://wa.me50764735869'
 
-  let numberBot = '527222518356' // Número del bot
-  let nombreBot = 'BOT OFICIAL'
+  let numberBot = '50764735869' // Número del bot
+  let nombreBot = '𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ'
 
-  let numberYoSoyYo = '18293142989'
+  let numberYoSoyYo = '50764735869'
   let nombreYoSoyYo = '💎 C R E A D O R 💎'
 
   // vCards individuales
