@@ -43,7 +43,7 @@ let handler = async function (m, { conn, text, args, usedPrefix, command }) {
     
     let sn = createHash('md5').update(m.sender).digest('hex')
     let regbot = `╭─╮︹︹⊹︹︹⊹︹︹⊹︹︹╭─╮
-𝗥𝗘𝗚𝗜𝗦𝗧𝗥𝗔𝗗𝗢 - 𝗗𝗘𝗡𝗝𝗜 𝗕𝗢𝗧
+𝗥𝗘𝗚𝗜𝗦𝗧𝗥𝗔𝗗𝗢 - 𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ
 ╚▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▭╝
 ┃𝐍𝐨𝐦𝐛𝐫𝐞: ${name}
 ┃𝐄𝐝𝐚𝐝: ${age} años
@@ -98,7 +98,7 @@ let chtxt = `👤 *𝖴𝗌uario* » ${m.pushName || 'Anónimo'}
         contextInfo: {
             externalAdReply: {
                 title: "【 🩵 𝐍𝐔𝐄𝐕𝐎 𝐑𝐄𝐆𝐈𝐒𝐓𝐑𝐎 🩵 】",
-                body: '𝚁𝚎𝚐𝚒𝚜𝚝𝚛𝚘𝚜 𝙼𝚊𝚔𝚒𝚖𝚊 2.0 𝙱𝚘𝚝',
+                body: '𝚁𝚎𝚐𝚒𝚜𝚝𝚛𝚘𝚜 shoyo 1.0 𝙱𝚘𝚝',
                 thumbnailUrl: perfil,
                 sourceUrl: redes,
                 mediaType: 1,
