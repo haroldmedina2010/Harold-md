@@ -28,9 +28,9 @@ console.log(`Error : ${e}`)
 }}
   
 //creador y otros
-global.creador = 'Wa.me/18293142989'
+global.creador = 'Wa.me/50764735869'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
-global.asistencia = 'Wa.me/18293142989'
+global.asistencia = 'Wa.me/50764735869'
 global.namechannel = '⏤͟͞ू⃪ shoyo hinata'
 global.namegrupo = '⏤͟͞ू⃪  ̸̷͢hinata ☦︎ 𝐆𝐫𝐮𝐩𝐨𑁯ᰍ'
 global.namecomu = 'sya team'
@@ -64,9 +64,9 @@ global.emojis = [emoji, emoji2, emoji3, emoji4].getRandom()
 
 
 //Enlaces
-var canal = 'https://whatsapp.com/channel/0029Vb5nxWWFHWq5CNFP5b21'  
-let canal2 = 'https://whatsapp.com/channel/0029Vb5nxWWFHWq5CNFP5b21'
-var git = 'https://github.com/mantis-has' 
+var canal = 'https://whatsapp.com/channel/0029Vb6MFShKGGGBWePRFc0U'  
+let canal2 = 'https://whatsapp.com/channel/0029Vb6MFShKGGGBWePRFc0U'
+var git = 'https://github.com' 
 var youtube = '' 
 var github = 'https://github.com' 
 let correo = 'no'
