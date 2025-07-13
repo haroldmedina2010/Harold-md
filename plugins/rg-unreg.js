@@ -15,7 +15,7 @@ let handler = async function (m, { conn }) {
 `)
 
   // Datos del canal/newsletter (para el efecto de reenviado)
-  const channelRD = { id: "120363400360651198@newsletter", name: "AVISO DE MI CREADOR" }
+  const channelRD = { id: "120363402552103115@newsletterr", name: "shoyo hinata" }
   
   // El mensaje que TÚ quieras (puedes cambiarlo)
   let mensaje = "「🚨」Debido a que eliminaste tu registro en la bot, ya no podrás usar la mayoría de sus funciones."
@@ -34,7 +34,7 @@ let handler = async function (m, { conn }) {
       externalAdReply: {
         title: channelRD.name,
         body: '🔥 Frases y más 🔥',
-        thumbnailUrl: 'https://qu.ax/UMbGb.jpg', // Opcional, cámbiala si quieres
+        thumbnailUrl: ' https://files.catbox.moe/1jdv8y.jpg', // Opcional, cámbiala si quieres
         mediaType: 1,
         renderLargerThumbnail: true,
       }
