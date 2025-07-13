@@ -40,7 +40,7 @@ global.libreria = 'Baileys'
 global.baileys = 'V 6.7.8'
 global.vs = '2.0.0'
 global.languaje = 'Español'
-global.nameqr = 'Denji Bot'
+global.nameqr = '𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ'
 global.sessions = 'Session'
 global.jadi = 'JadiBot'
 global.makiJadibts = true
@@ -64,22 +64,22 @@ global.namechannel = '𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼  𝐂𝐡a͟
 global.moneda = 'Coins'
 
 //• ↳ ◜𝑳𝑰𝑵𝑲𝑺  𝑫𝑬𝒀𝑴𝑶𝑶𝑵 𝑪𝑳𝑼𝑩◞ • 🩵
-global.gp4 = 'https://chat.whatsapp.com/KoJjHo6o3Ew7P5qkjaIh0r' //Grupo Oficial De Makima 
-global.gp1 = 'https://chat.whatsapp.com/KoJjHo6o3Ew7P5qkjaIh0r' //Grupo 2
-global.gp2 = 'https://chat.whatsapp.com/KoJjHo6o3Ew7P5qkjaIh0r'//
-global.channel = 'https://whatsapp.com/channel/0029VbAZcyIIXnlwp79iwu2l' //Canal Oficial
-global.channel2 = 'https://whatsapp.com/channel/0029VbAa5sNCsU9Hlzsn651S' //Canal test 
-global.yt = 'https://www.youtube.com/frasesbebord' //Canal De Youtube
-global.md = 'https://github.com/mantis-has/Makima' //Github Oficial
-global.correo = 'mantisbotmd@gmail.com'
-global.cn ='https://whatsapp.com/channel/0029VbAZcyIIXnlwp79iwu2l';
+global.gp4 = 'https://chat.whatsapp.com/JkpwB3J7qMQF1uxomv5U1e?mode=ac_t' //Grupo Oficial De Makima 
+global.gp1 = 'https://chat.whatsapp.com/CIAoJ4Ze2lm7jf4WZCeh7E?mode=ac_c' //Grupo 2
+global.gp2 = 'https://chat.whatsapp.com/CIAoJ4Ze2lm7jf4WZCeh7E?mode=ac_c'//
+global.channel = 'https://whatsapp.com/channel/0029Vb6MFShKGGGBWePRFc0U' //Canal Oficial
+global.channel2 = 'https://whatsapp.com/channel/0029Vb6MFShKGGGBWePRFc0U' //Canal test 
+global.yt = 'https://www.youtube.com' //Canal De Youtube
+global.md = 'https://github.com' //Github Oficial
+global.correo = ''
+global.cn ='https://whatsapp.com/channel/0029Vb6MFShKGGGBWePRFc0U';
 
 //*─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─*
 
-global.catalogo = fs.readFileSync('./src/catalogo.jpg');
+global.catalogo = fs.readFileSync('./src/catalogo1.jpg');
 global.estilo = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { orderMessage: { itemCount : -999999, status: 1, surface : 1, message: packname, orderTitle: 'Bang', thumbnail: catalogo, sellerJid: '0@s.whatsapp.net'}}}
 global.ch = {
-ch1: '120363402362088282@newsletter',
+ch1: '120363402552103115@newsletter',
 }
 global.multiplier = 70
 
