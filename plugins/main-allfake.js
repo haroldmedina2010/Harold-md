@@ -32,14 +32,14 @@ global.creador = 'Wa.me/18293142989'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
 global.asistencia = 'Wa.me/18293142989'
 global.namechannel = '⏤͟͞ू⃪ shoyo hinata'
-global.namegrupo = '⏤͟͞ू⃪  ̸̷͢🔥hinata ☦︎ 𝐆𝐫𝐮𝐩𝐨𑁯ᰍ'
+global.namegrupo = '⏤͟͞ू⃪  ̸̷͢hinata ☦︎ 𝐆𝐫𝐮𝐩𝐨𑁯ᰍ'
 global.namecomu = 'sya team'
-global.listo = '💥 *Aquí tienes ᕕ( ᐛ )ᕗ*'
+global.listo = ' *Aquí tienes ᕕ( ᐛ )ᕗ*'
 
 //Ids channel
-global.idchannel = '120363402362088282@newsletter'
-global.canalIdM = ["120363402362088282@newsletter", "120363402362088282@newsletter"]
-global.canalNombreM = ["⏤͟͞ू⃪ shoyo hinata 𝐂𝐡𝐚𝐧𝐧𝐞𝐥𑁯ᰍ", "⏤͟͞ू⃪🔥shoyo hinata 𝐂𝐡𝐚𝐧𝐧𝐞𝐥"]
+global.idchannel = '120363402552103115@newsletter'
+global.canalIdM = ["120363402552103115@newsletter", "120363402552103115@newsletter"]
+global.canalNombreM = ["⏤͟͞ू⃪ shoyo hinata 𝐂𝐡𝐚𝐧𝐧𝐞𝐥𑁯ᰍ", "⏤͟͞ू⃪shoyo hinata 𝐂𝐡𝐚𝐧𝐧𝐞𝐥"]
 global.channelRD = await getRandomChannel()
 
 global.d = new Date(new Date + 3600000)
