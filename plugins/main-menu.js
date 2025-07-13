@@ -247,7 +247,7 @@ let handler = async (m, { conn, args }) => {
 │⁖ฺ۟̇࣪·֗٬̤⃟💎 #broadcast
 ╰─⬣
 
-> © Propietario 𝙃𝙖𝙧𝙤𝙡𝙙 𝙍𝙃𝙇𝙈+𝟱𝟳
+> © creador 𓆩‌۫᷼ ִֶָღܾ݉͢𝐇ꪖ𝐫o͟𝐥𝐝𓆪
 `.trim();
 
   let imgBuffer = await fetch(imgUrl).then(res => res.buffer());  
