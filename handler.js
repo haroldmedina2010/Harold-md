@@ -528,13 +528,13 @@ if (opts['autoread']) await this.readMessages([m.key])
 
 global.dfail = (type, m, conn) => {
 const msg = {
-  rowner: '「🔥」Este comando solo puede ser usado por mi creador.',
-  owner:  '「💥」 Este comando solo puede ser usado por mi creador.',
+  rowner: '「🔥」Este comando solo puede ser usado por mi creador 𓆩‌۫᷼ ִֶָღܾ݉͢𝐇ꪖ𝐫o͟𝐥𝐝𓆪.',
+  owner:  '「💥」 Este comando solo puede ser usado por mi creador 𓆩‌۫᷼ ִֶָღܾ݉͢𝐇ꪖ𝐫o͟𝐥𝐝𓆪.',
   premium: '「🔥」 Este comando solo puede ser usado por users premiums.',
   private: '「💥」 Este comando solo puede ser usado en chats privados.',
   admin: '「🔥」 Este comando solo puede ser usado por admins.',
   botAdmin: '「💥」 El bot debe ser admin.',
   unreg: '「🔥」 Necesitas registrarte para usar mis comandos disponibles.\n\n#Reg nombre.edad\n\nEjemplo: #reg Makima.25',
-  restrict: '「💥」 𝙴𝚜te Comando fue desactivado por mi creador.'
+  restrict: '「💥」 𝙴𝚜te Comando fue desactivado por mi creador 𓆩‌۫᷼ ִֶָღܾ݉͢𝐇ꪖ𝐫o͟𝐥𝐝𓆪.'
 }[type];
 if (msg) return conn.reply(m.chat, msg, m, rcanal).then(_ => m.react('✖️'))}
