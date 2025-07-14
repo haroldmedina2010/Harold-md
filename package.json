@@ -1,6 +1,6 @@
 {
-"name": "Makima-MD",
-"version": "2.0.1",
+"name": "𝙎𝙃𝙊𝙔𝙊-𝙃𝙄𝙉𝘼𝙏𝘼-ოძ-𝘽 ꂦ Ꮏ",
+"version": "1.0.1",
 "description": "El mejor bot ",
 "main": "index.js",
 "type": "module",
@@ -16,16 +16,16 @@
 "eslint": "eslint .",
 "eslintfix": "eslint --fix ."
 },
-"homepage": "https://github.com/mantis-has/Makima",
+"homepage": "https://github.com/Andresv27728/Harold-md.git",
 "author": {
-"name": "Félix"
+"name": "HAROLD"
 },
 "repository": {
 "type": "git",
-"url": "git+https://github.com/mantis-has/Makima.git"
+"url": "git+https://github.com/Andresv27728/Harold-md.git"
 },
 "bugs": {
-"url": "https://github.com/mantis-has/Makima/issues"
+"url": "https://github.com/Andresv27728/Harold-md.git"
 },
 "license": "GPL-3.0-or-later",
 "dependencies": {
