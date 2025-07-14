@@ -104,20 +104,20 @@ clear
 echo -e "\e[36m
 ┏━━━━━━━━━⪩
 ┃˚₊ · ͟͟͞͞➳❥ 𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐂𝐈𝐎́𝐍
-┃⏤͟͟͞͞ Makima-Bot-MD
+┃⏤͟͟͞͞ 𝙎𝙃𝙊𝙔𝙊𝙃𝙄𝙉𝘼𝙏𝘼-ოძ-𝘽 ꂦ Ꮏ
 ┗━━━━━━━━━⪩
 
 ✰ Mode by:
-» Félix Manuel 
+» HAROLD 
 ✰ Créditos:
-» Félix Manuel 
+» HAROLD 
 ✰ GitHub:
-» https://github.com/mantis-has
+» https://github.com/Andresv27728/Harold-md.git
 ✰ Número del creador del bot:
-» +18293142989
+» +50764735869
 
 𝐆 𝐑 𝐀 𝐂 𝐈 𝐀 𝐒, 𝐏 𝐎 𝐑, 𝐏 𝐑 𝐄 𝐅 𝐄 𝐑 𝐈 𝐑 𝐍 𝐎 𝐒\n\e[0m"
 
 # Inicio
-echo -e "\033[01;32mIniciando MakimaV2...\033[0m"
+echo -e "\033[01;32mIniciando shoyoV1...\033[0m"
 npm start
