@@ -17,21 +17,21 @@ global.botNumber = '' //Ejemplo: 525218138672
 
 global.owner = [
   ['50764735869', '🩵 𝗖𝗿𝗲𝗮𝗱𝗼𝗿 ', true],
-  ['50764735869', '𝙃𝙖𝙧𝙤𝙡𝙙 𝙍𝙃𝙇𝙈+𝟱𝟳', true],
+  ['50764735869', '𓆩‌۫᷼ ִֶָღܾ݉͢𝐇ꪖ𝐫o͟𝐥𝐝𓆪', true],
   ['573133374132', '💖💝 Y⃟o⃟ S⃟o⃟y⃟ Y⃟o⃟ 💝 💖 ', true]
 ]
 
 //*─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─*
 
 global.owner_lid = [
-  ['267001641603252', '🩵 𝗖𝗿𝗲𝗮𝗱𝗼𝗿 🩵 (LID)', true],
-  ['176742836768966', 'Félix (LID)', true]
+  ['50764735869', '🩵 𝗖𝗿𝗲𝗮𝗱𝗼𝗿 🩵 (LID)', true],
+  ['50764735869', 'HAROLD (LID)', true]
 ]
 
 //*─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─*
 
 global.mods = []
-global.suittag = ['5215211111111'] 
+global.suittag = ['50764735869'] 
 global.prems = []
 
 //*─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─*
@@ -49,22 +49,22 @@ global.makiJadibts = true
 
 global.packsticker = `─✰─ׄ─ׅ─ׄ─✰─ׄ─✰─ׄ✰─ׄ\nBot: 𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ MD\n\nCreador: Harold\n\nTipo: Público\n\nUsuarios: 10k\n─✰─ׄ─ׅ─ׄ─✰─ׄ─✰─ׄ✰─ׄ\n\n`
 global.packname = `𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ`
-global.author = `𝐒𝐭𝐢𝐜𝐤𝐞𝐫𝐬 𝐁𝐲 𝙃𝙖𝙧𝙤𝙡𝙙 𝙍𝙃𝙇𝙈+𝟱𝟳`;
+global.author = `𝐒𝐭𝐢𝐜𝐤𝐞𝐫𝐬 𝐁𝐲 𓆩‌۫᷼ ִֶָღܾ݉͢𝐇ꪖ𝐫o͟𝐥𝐝𓆪`;
 global.wm = '⏤͟͞ू⃪  ̸̷͢𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝙃𝙖𝙧𝙤𝙡𝙙 𝙍𝙃𝙇𝙈+𝟱𝟳';
 global.titulowm = '⏤͟͞ू⃪𝐃𝐞𝐧𝐣𝐢 𝐁𖹭t͟ 𝐁𝐨𝐭𑁯ᰍ';
-global.igfg = '𝙃𝙖𝙧𝙤𝙡𝙙 𝙍𝙃𝙇𝙈+𝟱𝟳'
+global.igfg = '𓆩‌۫᷼ ִֶָღܾ݉͢𝐇ꪖ𝐫o͟𝐥𝐝𓆪'
 global.botname = '𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ'
-global.dev = '© ⍴᥆ᥕᥱrᥱძ ᑲᥡ 𝙃𝙖𝙧𝙤𝙡𝙙 𝙍𝙃𝙇𝙈+𝟱𝟳'
-global.textbot = 'shoyo HINATA :𝙃𝙖𝙧𝙤𝙡𝙙 𝙍𝙃𝙇𝙈+𝟱𝟳'
+global.dev = '© ⍴᥆ᥕᥱrᥱძ ᑲᥡ 𓆩‌۫᷼ ִֶָღܾ݉͢𝐇ꪖ𝐫o͟𝐥𝐝𓆪'
+global.textbot = 'shoyo HINATA :𓆩‌۫᷼ ִֶָღܾ݉͢𝐇ꪖ𝐫o͟𝐥𝐝𓆪'
 global.gt = '𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ';
 global.namechannel = '𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼  𝐂𝐡a͟𝐧n͟e͟𝐥𑁯'
 
 //*─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─*
 
-global.moneda = 'Coins'
+global.moneda = '𝙨𝙝𝙤𝙮𝙤Coins'
 
-//• ↳ ◜𝑳𝑰𝑵𝑲𝑺  𝑫𝑬𝒀𝑴𝑶𝑶𝑵 𝑪𝑳𝑼𝑩◞ • 🩵
-global.gp4 = 'https://chat.whatsapp.com/JkpwB3J7qMQF1uxomv5U1e?mode=ac_t' //Grupo Oficial De Makima 
+//• ↳ ◜𝑳𝑰𝑵𝑲𝑺  ׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅׅ𝚜𝚢𝚊 𝙩𝙚𝙖𝙢• 🩵
+global.gp4 = 'https://chat.whatsapp.com/JkpwB3J7qMQF1uxomv5U1e?mode=ac_t' //Grupo Oficial De 𝙎𝙃𝙊𝙔𝙊
 global.gp1 = 'https://chat.whatsapp.com/CIAoJ4Ze2lm7jf4WZCeh7E?mode=ac_c' //Grupo 2
 global.gp2 = 'https://chat.whatsapp.com/CIAoJ4Ze2lm7jf4WZCeh7E?mode=ac_c'//
 global.channel = 'https://whatsapp.com/channel/0029Vb6MFShKGGGBWePRFc0U' //Canal Oficial
