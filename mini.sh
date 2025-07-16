@@ -1,5 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# Código creado por @gata_dios - Modificado por Félix Manuel 
+# Código creado por @gata_dios - Modificado por HAROLD STIVEN
 
 # Comandos sugeridos en caso de fallo
 COMANDOS="pkg install git -y\npkg install nodejs -y\npkg install ffmpeg -y\npkg install imagemagick -y\npkg install -y yarn\ngit clone https://github.com/mantis-has/Makima\ncd Makima\nyarn install\nnpm install\nnpm start"
