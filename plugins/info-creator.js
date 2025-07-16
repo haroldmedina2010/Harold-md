@@ -5,11 +5,11 @@ let handler = async (m, { conn }) => {
   }
 
   // Datos de los contactos
-  let numberCreator = '50764735869' // Número de la creadora
+  let numberCreator = '50764735869' // Número del creador
   let nombreCreator = '✰ 𝐏𝐫𝐨𝐩𝐢𝐞𝐭𝐚𝐫𝐢𝐨 ✰'
   let canal = 'https://wa.me50764735869'
 
-  let numberBot = '50764735869' // Número del bot
+  let numberBot = '50769214785' // Número del bot
   let nombreBot = '𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ'
 
   let numberYoSoyYo = '50764735869'
@@ -38,7 +38,7 @@ TEL;waid=${numberYoSoyYo}:${numberYoSoyYo}
 END:VCARD`
 
   // Envía el canal como texto
-  await conn.sendMessage(m.chat, { text: `🔥 Aquí está el número de mi propietario y mi creador.` }, { quoted: m })
+  await conn.sendMessage(m.chat, { text: `😍 Aquí está el número de mi propietario y mi creador.` }, { quoted: m })
 
   // Envía la tarjeta de contacto con los tres contactos
   await conn.sendMessage(m.chat, {
@@ -55,6 +55,6 @@ END:VCARD`
 
 handler.help = ['owner']
 handler.tags = ['main']
-handler.command = ['owner', 'creatora', 'creadora', 'dueña']
+handler.command = ['owner', 'creator', 'creador', 'dueño']
 
 export default handler
