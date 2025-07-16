@@ -47,7 +47,7 @@ align: 'center',
 colors: ['redBright']
 })
 
-say(`Made with Felix`, {
+say(`Made with Harold`, {
 font: 'console',
 align: 'center',
 colors: ['blueBright']
