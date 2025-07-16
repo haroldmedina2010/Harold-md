@@ -49,7 +49,7 @@ export async function before(m, { isAdmin, isBotAdmin, conn }) {
         return conn.reply(m.chat, `🚫 *Error al intentar eliminar: ${e}*`, m)
       }
     } else {
-      return conn.reply(m.chat, `💥 *Restricción desactivada por mi creadora, no puedo expulsar.*`, m)
+      return conn.reply(m.chat, `💥 *Restricción desactivada por mi creador, no puedo expulsar.*`, m)
     }
   }
 
