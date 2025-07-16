@@ -5,7 +5,7 @@ let handler = async (m, { conn, usedPrefix }) => {
   let totalreg = Object.keys(global.db.data.users).length;
   let totalchats = Object.keys(global.db.data.chats).length;
   let vs = global.vs || '1.0.0';
-  let pp = "https://qu.ax/EUstl.jpg";
+  let pp = "https://qu.ax/mfDtT.jpg";
 
   // Tiempo de actividad
   if (process.send) {
@@ -33,24 +33,24 @@ let handler = async (m, { conn, usedPrefix }) => {
   let makimabot= `
 ╭━━━━◇◇◇━━━━⬣
 ┃ ESTADO DEL
-┃ M500 ULTRA BOT
+┃𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ
 ╰━━━━◇◇◇━━━━⬣
 
-🩵 *Creador:* Félix Manuel 
-🩵 *Prefijo:* [ ${usedPrefix} ]
-🩵 *Versión:* ${vs}
+🧡 *Creador:* 𓆩‌۫᷼ ִֶָღܾ݉͢𝐇ꪖ𝐫o͟𝐥𝐝𓆪 
+🧡 *Prefijo:* [ ${usedPrefix} ]
+🧡 *Versión:* ${vs}
 
-🩵 *Usuarios registrados:* ${totalreg}
-🩵 *Total de chats:* ${chats.length}
-🩵 *Grupos:* ${groupsIn.length}
-🩵 *Privados:* ${chats.length - groupsIn.length}
-🩵 *SubBots activos:* ${totalUsers || '0'}
+🧡 *Usuarios registrados:* ${totalreg}
+🧡 *Total de chats:* ${chats.length}
+🧡 *Grupos:* ${groupsIn.length}
+🧡 *Privados:* ${chats.length - groupsIn.length}
+🧡*SubBots activos:* ${totalUsers || '0'}
 
-🩵 *Actividad:* ${muptime}
-🩵 *Velocidad:* ${(speed * 1000).toFixed(0) / 1000}s
+🧡 *Actividad:* ${muptime}
+🧡 *Velocidad:* ${(speed * 1000).toFixed(0) / 1000}s
 `.trim();
 
-  await conn.sendFile(m.chat, pp, 'estado.jpg', makimabot, fkontak, null, rcanal);
+  await conn.sendFile(m.chat, pp, 'estado.jpg', shoyobot, fkontak, null, rcanal);
 };
 
 handler.help = ['status'];
