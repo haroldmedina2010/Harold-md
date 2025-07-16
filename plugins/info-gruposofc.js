@@ -8,17 +8,17 @@ let handler = async (m, { conn }) => {
   const namechannel = 'Canal de la Bot'
   const channel = 'https://whatsapp.com/channel/0029Vb6MFShKGGGBWePRFc0U' // ← tu canal real
 
-  const dev = '💎 Creador: harold y yo soy yo'
+  const dev = '💎 Creador: 𓆩‌۫᷼ ִֶָღܾ݉͢𝐇ꪖ𝐫o͟𝐥𝐝𓆪 y yo soy yo'
   const catalogo = 'https://files.catbox.moe/1jdv8y.jpg' // o './media/grupos.jpg'
   const emojis = '👨‍💻'
 
   let grupos = `
-╭─⟪ *💎GRUPOS OFICIALES * 
+╭─⟪ *🏐GRUPOS OFICIALES * 
 │
-│ 🩵 *${namegrupo}*
+│ 🧡 *${namegrupo}*
 │ ${gp1}
 │
-│ 🩵 *${namechannel}*
+│ 🧡 *${namechannel}*
 │ ${channel}
 ╰─────────────────╯
 `
