@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 
 const channelRD = {
   id: "120363402552103115@newsletter", // Cambia por tu canal si quieres
-  name: "⁖ฺ۟̇࣪·֗٬̤⃟ hinata ✰ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⬣"
+  name: "𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ✰ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⬣"
 };
 
 export async function before(m, { conn, participants, groupMetadata }) {
@@ -16,7 +16,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 
   const jid = m.messageStubParameters[0]
   const user = `@${jid.split('@')[0]}`
-  const thumbnailUrl = 'https://qu.ax/UMbGb.jpg'
+  const thumbnailUrl = 'https://qu.ax/jHScN.jpg'
   const pp = await conn.profilePictureUrl(jid, 'image').catch(() => thumbnailUrl)
   const img = await fetch(pp).then(r => r.buffer())
   const total = [28, 32].includes(m.messageStubType)
@@ -34,7 +34,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
     },
     externalAdReply: {
       title: channelRD.name,
-      body: '⁖ฺ۟̇࣪·֗٬̤⃟ shoyop hinata ✰ 𝐁𝐨𝐭 𝐌𝐃 ⬣',
+      body: '⁖ฺ۟̇࣪·֗٬̤⃟ 𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ',
       thumbnailUrl: thumbnailUrl,
       mediaType: 1,
       renderLargerThumbnail: false,
@@ -68,16 +68,16 @@ No dudes en presentarte y contarnos un poco sobre ti. ¡Vamos a hacer que esto s
     await conn.sendMessage(m.chat, { 
       text: 'Hola Bienvenid@.', 
       contextInfo: contextNewsletter
-    }, { quoted: quotedMsg('Quisiera ver a mi querida Makima') });
+    }, { quoted: quotedMsg('𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ') });
   }
 
   if ([28, 32].includes(m.messageStubType)) {
     const despedida = `
-╭─⬣「 ✰ADIOS✰ 」⬣
+╭─⬣「 ✰👋🏽ADIOS😓✰ 」⬣
 ┃
 ┃💥 Usuario: ${user}
 ┃🔥 Grupo: ${groupMetadata.subject}
-┃💥 Miembros: ${total}
+┃🧡 Miembros: ${total}
 ┃
 ┃⌬ Espero y vuelvas después.
 ╚━━━━━━━━━━━━━━━╝
@@ -90,7 +90,7 @@ No dudes en presentarte y contarnos un poco sobre ti. ¡Vamos a hacer que esto s
     });
     // Segundo mensaje, respondiendo a 《✧》 SE FUE
     await conn.sendMessage(m.chat, { 
-      text: 'Espero y el usuario vuelva pronto.', 
+      text: '𝚙𝚘𝚛 𝚚𝚞𝚎 𝚜𝚎 𝚏𝚞𝚎? ', 
       contextInfo: contextNewsletter
     }, { quoted: quotedMsg('adios') });
   }
