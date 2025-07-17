@@ -15,7 +15,7 @@ let handler = async (m, { conn }) => {
   let hasil = Math.floor(Math.random() * 1000)
   let info = `⛏️ ESTABAS MINANDO...
 
-> 💎 OBTUVISTE ESTOS RECURSOS:
+> 🤑 OBTUVISTE ESTOS RECURSOS:
 
 ✨ *Exp*: ${hasil}
 💰 *coins*: ${cookies}
@@ -27,8 +27,8 @@ let handler = async (m, { conn }) => {
 
   // ENVÍO DEL MENSAJE COMO REENVIADO DESDE CANAL/NEWSLETTER
   const channelRD = { 
-    id: "120363400360651198@newsletter", // <-- Pon aquí el ID de tu canal/newsletter
-    name: "💎 Frases y más 💎"              // <-- Pon aquí el nombre del canal/newsletter
+    id: "120363402552103115@newsletter", // <-- Pon aquí el ID de tu canal/newsletter
+    name: "𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ"              // <-- Pon aquí el nombre del canal/newsletter
   }
 
   await conn.sendMessage(m.chat, {
@@ -43,8 +43,8 @@ let handler = async (m, { conn }) => {
       },
       externalAdReply: {
         title: channelRD.name,
-        body: '⁖ฺ۟̇࣪·֗٬̤⃟🔥𝐃𝐞𝐧𝐣𝐢 ✰ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⬣',
-        thumbnailUrl: 'https://qu.ax/UMbGb.jpg', // Cambia la imagen si deseas
+        body: '⁖ฺ𝙎𝙃𝙊𝙔𝙊✰ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⬣',
+        thumbnailUrl: 'https://qu.ax/Jozty.jpg', // Cambia la imagen si deseas
         mediaType: 1,
         renderLargerThumbnail: true,
         sourceUrl: `https://whatsapp.com/channel/${channelRD.id.replace('@newsletter', '')}`
