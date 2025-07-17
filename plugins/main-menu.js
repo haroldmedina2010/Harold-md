@@ -21,7 +21,7 @@ let handler = async (m, { conn, args }) => {
   let imgUrl = images[Math.floor(Math.random() * images.length)]  
 
   let txt = `
-¡𝐇𝐨𝐥𝐚! ${name} 𝐒𝐨𝐲 *𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ* ${(conn.user.jid == global.conn.user.jid ? '(OficialBot)' : '(Sub-Bot)')}
+¡𝐇𝐨𝐥𝐚! ${name} 𝐒𝐨𝐲 *𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ* ${(conn.user.jid == global.conn.user.jid ? '𝙊𝙁𝙄𝘾𝙄𝘼𝙇 ＢＯＴ' : '(Sub-Bot)')}
 
 ╔━━ INFO-BOT ━━━━╗
 ┃Creador: 𓆩‌۫᷼ ִֶָღܾ݉͢𝐇ꪖ𝐫o͟𝐥𝐝𓆪
