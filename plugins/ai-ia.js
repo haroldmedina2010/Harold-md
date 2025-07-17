@@ -9,9 +9,9 @@ if (isQuotedImage) {
 const q = m.quoted
 const img = await q.download?.()
 if (!img) {
-console.error('🩵 Error: No image buffer available')
+console.error('🧡 Error: No image buffer available')
 return conn.reply(m.chat, '💎 Error: No se pudo descargar la imagen.', m, fake)}
-const content = '🩵 ¿Qué se observa en la imagen?'
+const content = '🧡 ¿Qué se observa en la imagen?'
 try {
 const imageAnalysis = await fetchImageBuffer(content, img)
 const query = '😊 Descríbeme la imagen y detalla por qué actúan así. También dime quién eres'
@@ -20,9 +20,9 @@ const description = await luminsesi(query, username, prompt)
 await conn.reply(m.chat, description, m, fake)
 } catch (error) {
 console.error('💎 Error al analizar la imagen:', error)
-await conn.reply(m.chat, '🩵 Error al analizar la imagen.', m, fake)}
+await conn.reply(m.chat, '🧡 Error al analizar la imagen.', m, fake)}
 } else {
-if (!text) { return conn.reply(m.chat, `💎 *Ingrese su petición*\n🩵 *Ejemplo de uso:* ${usedPrefix + command} Como hacer un avión de papel`, m, rcanal)}
+if (!text) { return conn.reply(m.chat, `💎 *Ingrese su petición*\n🧡 *Ejemplo de uso:* ${usedPrefix + command} Como hacer un avión de papel`, m, rcanal)}
 await m.react('💬')
 try {
 const query = text
@@ -30,7 +30,7 @@ const prompt = `${basePrompt}. Responde lo siguiente: ${query}`
 const response = await luminsesi(query, username, prompt)
 await conn.reply(m.chat, response, m, fake)
 } catch (error) {
-console.error('🩵 Error al obtener la respuesta:', error)
+console.error('🧡 Error al obtener la respuesta:', error)
 await conn.reply(m.chat, 'Error: intenta más tarde.', m, fake)}}}
 
 handler.help = ['chatgpt <texto>', 'ia <texto>']
@@ -68,5 +68,5 @@ webSearchMode: false
 })
 return response.data.result
 } catch (error) {
-console.error('🩵 Error al obtener:', error)
+console.error('🧡 Error al obtener:', error)
 throw error }}
