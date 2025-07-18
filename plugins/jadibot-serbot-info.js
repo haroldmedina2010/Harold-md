@@ -2,10 +2,10 @@
 // Codigo creado por Félix Manuel (github.com/mantis-has) para sistema Makima MD
 
 const channelRD = {
-  id: "120363402362088282@newsletter", // Cambia por tu canal si quieres
-  name: "⏤͟͞ू⃪🔥𝐃𝐞𝐧𝐣𝐢 𝐂𝐡𝐚𝐧𝐧𝐞𝐥"
+  id: "120363402552103115@newsletter", // Cambia por tu canal si quieres
+  name: "𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥"
 }
-const thumbnailUrl = 'https://qu.ax/lRCWR.jpg' // Imagen cuadrada y pequeña
+const thumbnailUrl = 'https://qu.ax/iYDKz.jpg' // Imagen cuadrada y pequeña
 
 async function handler(m, { conn: stars }) {
   let uniqueUsers = new Map()
