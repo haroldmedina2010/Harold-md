@@ -13,10 +13,10 @@ let handler = async (m, { conn, args }) => {
   let totalCommands = Object.values(global.plugins).filter((v) => v.help && v.tags).length;  
 
   let images = [
-    'https://qu.ax/QTkuq.jpg',
-    'https://qu.ax/QTkuq.jpg',
-    'https://qu.ax/QTkuq.jpg',
-    'https://qu.ax/QTkuq.jpg'
+    'https://qu.ax/MWyfk.jpg',
+    'https://qu.ax/MWyfk.jpg',
+    'https://qu.ax/MWyfk.jpg',
+    'https://qu.ax/MWyfk.jpg'
   ]
   let imgUrl = images[Math.floor(Math.random() * images.length)]  
 
