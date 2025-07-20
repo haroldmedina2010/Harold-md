@@ -78,7 +78,12 @@ No dudes en presentarte y contarnos un poco sobre ti. ¡Vamos a hacer que esto s
 ┃💥 Usuario: ${user}
 ┃🔥 Grupo: ${groupMetadata.subject}
 ┃🧡 Miembros: ${total}
-┃
+┃👋😢  has dejado el grupo...
+┃¡Te vamos a extrañar! 🥺💔
+┃Gracias por compartir con nosotros 🙌
+┃¡Éxitos en todo lo que venga! 🍀✨
+┃¡Las puertas quedan abiertas por si decides volver! 🚪💬
+┃ATT:𓆩‌۫᷼ ִֶָღܾ݉͢𝐇ꪖ𝐫o͟𝐥𝐝𓆪
 ┃⌬ Espero y vuelvas después.
 ╚━━━━━━━━━━━━━━━╝
 `
@@ -90,7 +95,7 @@ No dudes en presentarte y contarnos un poco sobre ti. ¡Vamos a hacer que esto s
     });
     // Segundo mensaje, respondiendo a 《✧》 SE FUE
     await conn.sendMessage(m.chat, { 
-      text: '𝚙𝚘𝚛 𝚚𝚞𝚎 𝚜𝚎 𝚏𝚞𝚎? ', 
+      text: '', 
       contextInfo: contextNewsletter
     }, { quoted: quotedMsg('adios') });
   }
