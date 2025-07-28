@@ -134,7 +134,7 @@ let handler = async (m, { conn, args }) => {
 │⁖ฺ۟̇࣪·֗٬̤⃟💎 #confirmar 
 ╰─⬣
 
-╭─⬣「 ✰✰ 」⬣
+╭─⬣「 ✰𝚊𝚌𝚌𝚒𝚘𝚗𝚎𝚜✰ 」⬣
 │⁖ฺ۟̇࣪·֗٬̤⃟💎 #abrazar
 │⁖ฺ۟̇࣪·֗٬̤⃟💎 #besar
 │⁖ฺ۟̇࣪·֗٬̤⃟💎 #dormir
