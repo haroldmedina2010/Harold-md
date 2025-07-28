@@ -1,0 +1,22 @@
+import fs from 'fs'
+import path from 'path'
+
+const handler = async (m, { conn, isGroup }) => {
+  if (!isGroup) return m.reply('❌ Este comando solo se puede usar en grupos.')
+
+  const dir = './media/videos/'
+  const files = fs.readdirSync(dir).filter(file => file.endsWith('.mp4'))
+  
+  if (!files.length) return m.reply('🎵 No hay videos disponibles.')
+
+  const randomVideo = files[Math.floor(Math.random() * files.length)]
+  const filePath = path.join(dir, randomVideo)
+
+  await conn.sendFile(m.chat, filePath, 'musica.mp4', '🎶 Aquí tienes tu video musical.', m)
+}
+
+handler.command = ['video']
+handler.group = true
+handler.private = false
+
+export default handler
