@@ -1,0 +1,35 @@
+import fs from 'fs'
+import path from 'path'
+import { sticker } from '../lib/sticker.js'
+
+const handler = async (m, { conn }) => {
+  const dir = './media/stickers/'
+  const files = fs.readdirSync(dir).filter(file => /\.(jpg|png)$/i.test(file))
+
+  if (!files.length) {
+    return m.reply('⚠️ No hay imágenes en la carpeta de stickers.')
+  }
+
+  const file = files[Math.floor(Math.random() * files.length)]
+  const filePath = path.join(dir, file)
+
+  try {
+    let stikerBuf = await sticker(filePath, false, {
+      packname: "Harold-md",
+      author: "Bot"
+    })
+    if (stikerBuf) await conn.sendFile(m.chat, stikerBuf, 'sticker.webp', '', m, { asSticker: true })
+    else m.reply('❌ Error al crear el sticker.')
+  } catch (e) {
+    console.error(e)
+    m.reply('⚠️ Ocurrió un error al enviar el sticker.')
+  }
+}
+
+handler.command = ['stiker']
+handler.tags = ['fun']
+handler.help = ['stiker']
+handler.register = false
+handler.limit = false
+
+export default handler
