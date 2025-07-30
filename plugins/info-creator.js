@@ -1,5 +1,5 @@
 let handler = async (m, { conn }) => {
-  // Reacciona con 🔥
+  // Reacciona con 🖥️
   if (conn.sendMessage) {
     await conn.sendMessage(m.chat, { react: { text: '🔥', key: m.key }});
   }
@@ -9,7 +9,7 @@ let handler = async (m, { conn }) => {
   let nombreCreator = '✰ 𝐏𝐫𝐨𝐩𝐢𝐞𝐭𝐚𝐫𝐢𝐨 ✰'
   let canal = 'https://wa.me50764735869'
 
-  let numberBot = '50769214785' // Número del bot
+  let numberBot = '50764735869' // Número del bot
   let nombreBot = '𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ'
 
   let numberYoSoyYo = '50764735869'
