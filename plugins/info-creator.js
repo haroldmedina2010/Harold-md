@@ -22,7 +22,7 @@ let handler = async (m, { conn }) => {
       externalAdReply: {
         title: '🧡 Contacto oficial de 𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ',
         body: 'Creador y soporte técnico',
-        thumbnailUrl: 'https://d.uguu.se/wrCvoNjp.jpg',
+        thumbnailUrl: 'https://files.catbox.moe/26kguo.jpg',
         sourceUrl: 'https://whatsapp.com/channel/0029Vb6MFShKGGGBWePRFc0U',
         mediaType: 1,
         renderLargerThumbnail: true
