@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 
 let handler = async (m, { conn }) => {
-  await m.react('❤️');
+  await m.react('🖥️');
 
   let username = await conn.getName(m.sender);
 
