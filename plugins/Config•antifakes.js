@@ -1,52 +1,30 @@
 import db from '../lib/database.js'
+
 let handler = m => m
-handler.before = async function (m, {conn, isAdmin, isBotAdmin} ) {
-if (!m.isGroup) return !1
-let chat = global.db.data.chats[m.chat]
-if (isBotAdmin && chat.antifake) {
-if (m.sender.startsWith('6' || '6')) {
-global.db.data.users[m.sender].block = true
- 
-await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}
-if (m.sender.startsWith('90' || '90')) {
-global.db.data.users[m.sender].block = true
- 
-await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}
-if (m.sender.startsWith('212' || '212')) {
-global.db.data.users[m.sender].block = true
-  
-await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}
-if (m.sender.startsWith('92' || '92')) {
-global.db.data.users[m.sender].block = true
- 
-await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}
-if (m.sender.startsWith('93' || '93')) {
-global.db.data.users[m.sender].block = true
- 
-await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}
-if (m.sender.startsWith('94' || '94')) {
-global.db.data.users[m.sender].block = true
+handler.before = async function (m, {conn, isAdmin, isBotAdmin}) {
+    if (!m.isGroup) return !1
 
-await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}
-if (m.sender.startsWith('7' || '7')) {
-global.db.data.users[m.sender].block = true
+    let chat = global.db.data.chats[m.chat]
+    if (!isBotAdmin || !chat?.antifake) return !1
 
-await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}
-if (m.sender.startsWith('49' || '49')) {
-global.db.data.users[m.sender].block = true
+    try {
+        // Lista de códigos de país a bloquear
+        const blockedCountries = ['6', '90', '212', '92', '93', '94', '7', '49', '2', '91', '48']
 
-await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}
-if (m.sender.startsWith('2' || '2')) {
-global.db.data.users[m.sender].block = true
+        for (let country of blockedCountries) {
+            if (m.sender.startsWith(country)) {
+                global.db.data.users[m.sender].block = true
 
-await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}
-if (m.sender.startsWith('91' || '91')) {
-global.db.data.users[m.sender].block = true
+                await conn.reply(m.chat, `🚫 *ANTI-FAKE ACTIVADO*\n\nUsuario con código +${country} ha sido eliminado.`, m)
+                await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+                break
+            }
+        }
+    } catch (e) {
+        console.error('Error en antifakes:', e)
+    }
 
-await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}
-if (m.sender.startsWith('48' || '48')) {
-global.db.data.users[m.sender].block = true
+    return !0
+}
 
-await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')} 
-}}
 export default handler
