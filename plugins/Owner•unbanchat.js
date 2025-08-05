@@ -1,6 +1,8 @@
 
 let handler = async (m, { conn, text, isROwner }) => {
-    if (!isROwner) return conn.reply(m.chat, '❌ Solo el propietario puede usar este comando.', m)
+    if (!isROwner) {
+        return conn.reply(m.chat, '❌ Solo el propietario puede usar este comando.', m)
+    }
     
     let chat = text || m.chat
     
@@ -13,10 +15,17 @@ let handler = async (m, { conn, text, isROwner }) => {
             return conn.reply(m.chat, '⚠️ Este chat no está baneado.', m)
         }
         
+        let previousReason = global.db.data.chats[chat].banReason || 'Sin razón registrada'
+        
         global.db.data.chats[chat].isBanned = false
         delete global.db.data.chats[chat].banReason
         
-        await conn.reply(m.chat, `✅ *CHAT DESBANEADO*\n\n*Chat:* ${chat}\n*Estado:* Activo\n*Fecha:* ${new Date().toLocaleString()}`, m)
+        await conn.reply(m.chat, `✅ *𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ - CHAT DESBANEADO*
+
+*Chat:* ${chat}
+*Razón anterior:* ${previousReason}
+*Estado:* Activo
+*Fecha:* ${new Date().toLocaleString()}`, m)
         
     } catch (e) {
         console.error('Error en unbanchat:', e)
