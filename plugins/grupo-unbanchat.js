@@ -1,48 +1,56 @@
 
-let handler = async (m, { conn, isAdmin, isOwner, isROwner }) => {
-    // Verificar permisos
-    if (!isAdmin && !isOwner && !isROwner) {
-        return conn.reply(m.chat, '🚫 *Solo administradores pueden desbanear el bot*', m)
-    }
-    
-    if (!m.isGroup) {
-        return conn.reply(m.chat, '❌ *Este comando solo funciona en grupos*', m)
+let handler = async (m, { conn, isOwner, isAdmin, isROwner }) => {
+    if (!(isAdmin || isOwner || isROwner)) {
+        return conn.reply(m.chat, '🚫 *Solo los administradores pueden usar este comando*', m)
     }
     
     try {
         let chat = global.db.data.chats[m.chat]
-        
-        if (!chat.isBanned) {
-            return conn.reply(m.chat, '⚠️ *Este chat no está baneado*', m)
+        if (!chat) {
+            global.db.data.chats[m.chat] = {
+                isBanned: false,
+                welcome: true,
+                detect: true,
+                antiLink: false,
+                antiBot: false,
+                antifake: false,
+                nsfw: false,
+                autosticker: false,
+                autoresponder: false,
+                delete: false,
+                modoadmin: false,
+                autolevelup: false,
+                reaction: false
+            }
+            return conn.reply(m.chat, '✅ *Este chat no estaba baneado*', m)
         }
         
-        let previousReason = chat.banReason || 'Sin razón registrada'
+        if (!chat.isBanned) {
+            return conn.reply(m.chat, '✅ *Este chat no está baneado*', m)
+        }
         
         chat.isBanned = false
-        delete chat.banReason
         
-        await conn.reply(m.chat, `✅ *𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ DESBANEADO*
+        await conn.reply(m.chat, `✅ *CHAT DESBANEADO*
 
-📋 *Información:*
-• Chat: ${await conn.getName(m.chat)}
-• Razón anterior: ${previousReason}
-• Desbaneado por: ${await conn.getName(m.sender)}
-• Fecha: ${new Date().toLocaleString()}
+El bot volverá a responder a comandos en este chat.
 
-🎉 *El bot volverá a responder comandos normalmente*`, m)
-        
-        console.log(`Chat desbaneado: ${m.chat}`)
-        
+*Desbaneado por:* @${m.sender.split('@')[0]}
+*Fecha:* ${new Date().toLocaleString()}
+
+*Bot:* 𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ 𝘽 ꂦ Ꮏ`, m, { mentions: [m.sender] })
+
     } catch (e) {
         console.error('Error en unbanchat:', e)
-        await conn.reply(m.chat, `❌ Error al desbanear chat: ${e.message}`, m)
+        await conn.reply(m.chat, `❌ Error al desbanear el chat: ${e.message}`, m)
     }
 }
 
 handler.help = ['unbanchat']
-handler.tags = ['group']
-handler.command = ['unbanchat', 'desbanchat', 'unbanbot']
-handler.group = true
+handler.tags = ['admin']
+handler.command = ['unbanchat', 'desbanchat', 'unban']
 handler.admin = true
+handler.group = true
+handler.register = true
 
 export default handler

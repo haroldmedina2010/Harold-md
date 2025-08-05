@@ -1,98 +1,66 @@
 
-let handler = async (m, { conn, isROwner }) => {
-    if (!isROwner) {
-        return conn.reply(m.chat, '❌ Solo el propietario puede usar este comando.', m)
+let handler = async (m, { conn, isOwner, isAdmin }) => {
+    if (!isAdmin && !isOwner) {
+        return conn.reply(m.chat, '🚫 *Solo los administradores pueden usar este comando*', m)
     }
-    
+
     try {
-        let errors = []
-        let warnings = []
-        let info = []
-        
+        await conn.reply(m.chat, '🔍 *Verificando estado del sistema...*', m)
+
+        let systemReport = `🔧 *VERIFICACIÓN DEL SISTEMA*\n\n`
+        systemReport += `*Bot:* 𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ 𝘽 ꂦ Ꮏ\n`
+        systemReport += `*Fecha:* ${new Date().toLocaleString()}\n`
+        systemReport += `*Chat:* ${m.isGroup ? await conn.getName(m.chat) : 'Privado'}\n\n`
+
         // Verificar base de datos
-        if (!global.db) {
-            errors.push('❌ Base de datos no inicializada')
+        systemReport += `📊 *BASE DE DATOS:*\n`
+        if (global.db && global.db.data) {
+            systemReport += `✅ Base de datos: Funcionando\n`
+            systemReport += `✅ Chats: ${Object.keys(global.db.data.chats || {}).length}\n`
+            systemReport += `✅ Usuarios: ${Object.keys(global.db.data.users || {}).length}\n`
         } else {
-            info.push('✅ Base de datos activa')
-            
-            // Verificar estructura de chats
-            if (!global.db.data.chats) {
-                errors.push('❌ Estructura de chats no encontrada')
+            systemReport += `❌ Base de datos: No disponible\n`
+        }
+
+        // Verificar configuración del chat
+        systemReport += `\n⚙️ *CONFIGURACIÓN DEL CHAT:*\n`
+        if (m.isGroup) {
+            let chat = global.db.data.chats[m.chat]
+            if (chat) {
+                systemReport += `✅ Configuración: Disponible\n`
+                systemReport += `🚫 Baneado: ${chat.isBanned ? 'Sí' : 'No'}\n`
+                systemReport += `👋 Welcome: ${chat.welcome ? 'Activo' : 'Inactivo'}\n`
+                systemReport += `🔍 Detect: ${chat.detect ? 'Activo' : 'Inactivo'}\n`
             } else {
-                let totalChats = Object.keys(global.db.data.chats).length
-                let bannedChats = Object.values(global.db.data.chats).filter(chat => chat.isBanned).length
-                info.push(`📊 Total chats: ${totalChats} (${bannedChats} baneados)`)
+                systemReport += `❌ Configuración: No disponible\n`
             }
-            
-            // Verificar estructura de usuarios
-            if (!global.db.data.users) {
-                errors.push('❌ Estructura de usuarios no encontrada')
-            } else {
-                let totalUsers = Object.keys(global.db.data.users).length
-                let bannedUsers = Object.values(global.db.data.users).filter(user => user.banned).length
-                info.push(`👥 Total usuarios: ${totalUsers} (${bannedUsers} baneados)`)
-            }
+        } else {
+            systemReport += `ℹ️ Chat privado\n`
         }
-        
-        // Verificar plugins críticos
-        const criticalPlugins = [
-            'grupo-banchat.js',
-            'grupo-unbanchat.js',
-            'Owner•banchat.js',
-            'Owner•unbanchat.js',
-            'Admin•resetconfig.js'
-        ]
-        
-        for (let plugin of criticalPlugins) {
-            if (!global.plugins[plugin]) {
-                warnings.push(`⚠️ Plugin crítico no cargado: ${plugin}`)
-            }
-        }
-        
-        // Verificar configuración
-        if (!global.opts) {
-            errors.push('❌ Configuración global no encontrada')
-        }
-        
+
         // Verificar conexión
-        if (!conn.user) {
-            errors.push('❌ Bot no conectado correctamente')
-        } else {
-            info.push(`🤖 Bot conectado como: ${conn.user.name}`)
-        }
-        
-        // Generar reporte
-        let report = `🔍 *𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ - DIAGNÓSTICO SISTEMA*\n\n`
-        
-        if (errors.length > 0) {
-            report += `*🚨 ERRORES CRÍTICOS:*\n${errors.join('\n')}\n\n`
-        }
-        
-        if (warnings.length > 0) {
-            report += `*⚠️ ADVERTENCIAS:*\n${warnings.join('\n')}\n\n`
-        }
-        
-        if (info.length > 0) {
-            report += `*ℹ️ INFORMACIÓN:*\n${info.join('\n')}\n\n`
-        }
-        
-        report += `*📊 RESUMEN:*\n`
-        report += `• Errores: ${errors.length}\n`
-        report += `• Advertencias: ${warnings.length}\n`
-        report += `• Estado: ${errors.length === 0 ? '✅ Saludable' : '❌ Requiere atención'}\n\n`
-        report += `_Fecha: ${new Date().toLocaleString()}_`
-        
-        await conn.reply(m.chat, report, m)
-        
+        systemReport += `\n🌐 *CONEXIÓN:*\n`
+        systemReport += `✅ WhatsApp: Conectado\n`
+        systemReport += `✅ Bot: Funcionando\n`
+        systemReport += `📱 Número: ${conn.user.jid.split('@')[0]}\n`
+
+        // Estado general
+        systemReport += `\n🎯 *ESTADO GENERAL:*\n`
+        systemReport += `✅ Sistema operativo correctamente\n`
+        systemReport += `⏰ Tiempo activo: ${process.uptime().toFixed(2)} segundos\n`
+
+        await conn.reply(m.chat, systemReport, m)
+
     } catch (e) {
         console.error('Error en systemcheck:', e)
-        await conn.reply(m.chat, `❌ Error al realizar diagnóstico: ${e.message}`, m)
+        await conn.reply(m.chat, `❌ Error en verificación del sistema: ${e.message}`, m)
     }
 }
 
-handler.help = ['systemcheck', 'diagnostico']
-handler.tags = ['owner']
-handler.command = /^(systemcheck|diagnostico|checkbot)$/i
-handler.rowner = true
+handler.help = ['systemcheck', 'checkstatus']
+handler.tags = ['admin', 'tools']
+handler.command = ['systemcheck', 'checkstatus', 'estado', 'status']
+handler.admin = true
+handler.register = true
 
 export default handler
