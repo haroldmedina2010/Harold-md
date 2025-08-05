@@ -71,7 +71,7 @@ async function tokens() {
             'Content-Type': 'application/x-www-form-urlencoded',
             Authorization: 'Basic ' + Buffer.from('acc6302297e040aeb6e4ac1fbdfd62c3:0e8439a1280a43aba9a5bc0a16f3f009').toString('base64'),
         },
-        data: 'grant_type=client_credentials',
+        data: 'grant_type=client_credentials',s',
     });
     return response.data.access_token;
 }

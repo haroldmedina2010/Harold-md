@@ -32,4 +32,4 @@ handler.command = ['demote','quitarpija', 'degradar']
 handler.admin = true
 handler.botAdmin = true
 
-export default handler
+export default handler handler

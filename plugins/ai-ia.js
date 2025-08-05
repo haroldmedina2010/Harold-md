@@ -58,6 +58,8 @@ return response.data
 console.error('Error:', error)
 throw error }}
 // Función para interactuar con la IA usando prompts
+asyimport axios from 'axios'
+
 async function luminsesi(q, username, logic) {
 try {
 const response = await axios.post("https://Luminai.my.id", {
@@ -68,5 +70,7 @@ webSearchMode: false
 })
 return response.data.result
 } catch (error) {
-console.error('🧡 Error al obtener:', error)
+console.error('Error en luminsesi:', error)
+return 'Error al procesar la solicitud'
+}error('🧡 Error al obtener:', error)
 throw error }}
