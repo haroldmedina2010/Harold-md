@@ -1,3 +1,4 @@
+
 import fs from 'fs';
 const obtenerDatos = () => {
     if (fs.existsSync('data.json')) {
@@ -19,12 +20,12 @@ let handler = async (m, { conn }) => {
             ? m.quoted.sender 
             : null
     if (!mentionedJid) {
-        conn.reply(m.chat, '🩵 Etiqueta al usuario.', m, rcanal)
+        conn.reply(m.chat, '🩵 Etiqueta al usuario.', m)
         return
     }
 
     if (!data.usuarios[mentionedJid]) {
-        conn.reply(m.chat, `El usuario ${tagUser(mentionedJid)} no tiene personajes 🫵😹.`, m, rcanal)
+        conn.reply(m.chat, `El usuario ${tagUser(mentionedJid)} no tiene personajes 🫵😹.`, m)
         return
         }
 
@@ -33,11 +34,13 @@ let handler = async (m, { conn }) => {
     data.usuarios[mentionedJid].totalRwcoins = 0;
     guardarDatos(data)
 
-    conn.reply(m.chat, `🩵 El usuario ${tagUser(mentionedJid)} ha sido reseteado. Todos sus personajes y monedas han sido eliminados.`, m, rcanal)};
+    conn.reply(m.chat, `🩵 El usuario ${tagUser(mentionedJid)} ha sido reseteado. Todos sus personajes y monedas han sido eliminados.\n\n*Bot:* 𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ 𝘽 ꂦ Ꮏ`, m)
+};
 
 handler.help = ['resetpersonajes']
 handler.tags = ['owner']
 handler.command = ['resetpersonajes', 'resetp', 'eliminarpersonajes', 'eliminarp']
 handler.group = true
 handler.rowner = true
+
 export default handler

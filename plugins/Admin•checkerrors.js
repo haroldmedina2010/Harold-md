@@ -1,173 +1,125 @@
-
 import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
 
-let handler = async (m, { conn, isOwner, isROwner }) => {
-    if (!isOwner && !isROwner) return conn.reply(m.chat, '❌ Este comando solo puede ser usado por el propietario.', m)
-    
+let handler = async (m, { conn, isOwner, isAdmin }) => {
+    if (!isAdmin && !isOwner) {
+        return conn.reply(m.chat, '🚫 *Solo los administradores pueden usar este comando*', m)
+    }
+
     try {
-        let errorReport = `🔍 *REPORTE DE ERRORES DEL BOT*\n\n`
-        errorReport += `━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`
-        
-        // 1. Verificar archivos principales
-        const mainFiles = ['index.js', 'handler.js', 'config.js', 'package.json']
-        let mainFilesStatus = `📁 *ARCHIVOS PRINCIPALES:*\n`
-        
-        for (let file of mainFiles) {
-            try {
-                if (fs.existsSync(file)) {
-                    const content = fs.readFileSync(file, 'utf8')
-                    if (content.trim() === '') {
-                        mainFilesStatus += `❌ ${file} - Archivo vacío\n`
-                    } else {
-                        mainFilesStatus += `✅ ${file} - OK\n`
-                    }
-                } else {
-                    mainFilesStatus += `❌ ${file} - No existe\n`
+        await conn.reply(m.chat, '🔍 *Iniciando diagnóstico del sistema...*', m)
+
+        // Verificar base de datos
+        let dbErrors = []
+        let configErrors = []
+        let pluginErrors = []
+
+        // Verificar estructura de la base de datos
+        if (!global.db) dbErrors.push('❌ Base de datos global no inicializada')
+        if (!global.db?.data) dbErrors.push('❌ Datos de la base de datos no disponibles')
+        if (!global.db?.data?.chats) dbErrors.push('❌ Configuración de chats no disponible')
+        if (!global.db?.data?.users) dbErrors.push('❌ Datos de usuarios no disponibles')
+        if (!global.db?.data?.settings) dbErrors.push('❌ Configuraciones del bot no disponibles')
+
+        // Verificar configuración del chat actual
+        if (m.isGroup) {
+            let chat = global.db.data.chats[m.chat]
+            if (!chat) {
+                configErrors.push('⚠️ Configuración del grupo no encontrada')
+                // Crear configuración por defecto
+                global.db.data.chats[m.chat] = {
+                    isBanned: false,
+                    welcome: true,
+                    detect: true,
+                    antiLink: false,
+                    antiBot: false,
+                    antifake: false,
+                    nsfw: false,
+                    autosticker: false,
+                    autoresponder: false,
+                    delete: false,
+                    modoadmin: false,
+                    autolevelup: false
                 }
-            } catch (e) {
-                mainFilesStatus += `❌ ${file} - Error: ${e.message}\n`
+                configErrors.push('✅ Configuración del grupo restablecida')
             }
         }
-        errorReport += mainFilesStatus + '\n'
-        
-        // 2. Verificar plugins con errores
-        const pluginsDir = './plugins'
-        let pluginErrors = `🔌 *PLUGINS CON ERRORES:*\n`
-        let errorCount = 0
-        
-        if (fs.existsSync(pluginsDir)) {
-            const files = fs.readdirSync(pluginsDir)
-            
-            for (let file of files) {
-                if (file.endsWith('.js')) {
-                    try {
-                        const filePath = path.join(pluginsDir, file)
-                        const content = fs.readFileSync(filePath, 'utf8')
-                        
-                        // Verificar errores comunes
-                        const errors = []
-                        
-                        // Export incompleto
-                        if (content.includes('export default') && content.match(/export default\s*$/m)) {
-                            errors.push('Export incompleto')
-                        }
-                        
-                        // Funciones incompletas
-                        if (content.includes('function') && content.match(/function\s+\w+\s*\([^)]*\)\s*{\s*$/m)) {
-                            errors.push('Función incompleta')
-                        }
-                        
-                        // Console.log incompleto
-                        if (content.includes('console.') && content.match(/console\.\s*$/m)) {
-                            errors.push('Console incompleto')
-                        }
-                        
-                        // Strings no cerrados
-                        if (content.match(/['"`][^'"`]*$/m)) {
-                            errors.push('String no cerrado')
-                        }
-                        
-                        // Imports faltantes
-                        if (content.includes('axios') && !content.includes('import') && !content.includes('axios')) {
-                            errors.push('Import de axios faltante')
-                        }
-                        
-                        if (errors.length > 0) {
-                            errorCount++
-                            pluginErrors += `❌ ${file}:\n`
-                            errors.forEach(error => {
-                                pluginErrors += `   • ${error}\n`
-                            })
-                        }
-                        
-                    } catch (e) {
-                        errorCount++
-                        pluginErrors += `❌ ${file} - Error al leer: ${e.message}\n`
-                    }
-                }
-            }
-        }
-        
-        if (errorCount === 0) {
-            pluginErrors += `✅ No se encontraron errores en plugins\n`
-        }
-        errorReport += pluginErrors + '\n'
-        
-        // 3. Verificar dependencias
-        let depsStatus = `📦 *DEPENDENCIAS:*\n`
+
+        // Verificar plugins críticos
         try {
-            if (fs.existsSync('package.json')) {
-                const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
-                const deps = packageJson.dependencies || {}
-                const requiredDeps = [
-                    'cfonts', 'chalk', 'boxen', 'pino', 'yargs', 'lodash',
-                    'syntax-error', 'node-cache', '@whiskeysockets/baileys',
-                    '@hapi/boom', 'lowdb', 'ws', 'google-libphonenumber', 'axios'
-                ]
-                
-                let missingDeps = []
-                for (let dep of requiredDeps) {
-                    if (!deps[dep]) {
-                        missingDeps.push(dep)
-                    }
-                }
-                
-                if (missingDeps.length > 0) {
-                    depsStatus += `❌ Dependencias faltantes:\n`
-                    missingDeps.forEach(dep => {
-                        depsStatus += `   • ${dep}\n`
-                    })
-                } else {
-                    depsStatus += `✅ Todas las dependencias principales están instaladas\n`
-                }
-            }
-        } catch (e) {
-            depsStatus += `❌ Error al verificar package.json: ${e.message}\n`
-        }
-        errorReport += depsStatus + '\n'
-        
-        // 4. Verificar estructura de carpetas
-        let structureStatus = `📂 *ESTRUCTURA:*\n`
-        const requiredDirs = ['plugins', 'lib', 'src', 'tmp']
-        
-        for (let dir of requiredDirs) {
-            if (fs.existsSync(dir)) {
-                structureStatus += `✅ /${dir} - OK\n`
+            let fs = await import('fs')
+            let pluginsDir = './plugins'
+            if (!fs.existsSync(pluginsDir)) {
+                pluginErrors.push('❌ Carpeta de plugins no encontrada')
             } else {
-                structureStatus += `❌ /${dir} - No existe\n`
+                // Verificar algunos plugins críticos
+                let criticalPlugins = [
+                    'grupo-banchat.js',
+                    'grupo-unbanchat.js',
+                    'main-allfake.js',
+                    'config-nable.js'
+                ]
+
+                for (let plugin of criticalPlugins) {
+                    if (!fs.existsSync(`${pluginsDir}/${plugin}`)) {
+                        pluginErrors.push(`⚠️ Plugin ${plugin} no encontrado`)
+                    }
+                }
             }
-        }
-        errorReport += structureStatus + '\n'
-        
-        // 5. Estado del proceso
-        let processStatus = `⚙️ *ESTADO DEL PROCESO:*\n`
-        try {
-            const memUsage = process.memoryUsage()
-            processStatus += `💾 Memoria: ${Math.round(memUsage.heapUsed / 1024 / 1024)}MB\n`
-            processStatus += `🕐 Uptime: ${Math.round(process.uptime())}s\n`
-            processStatus += `📊 Node.js: ${process.version}\n`
         } catch (e) {
-            processStatus += `❌ Error al obtener estado: ${e.message}\n`
+            pluginErrors.push(`❌ Error verificando plugins: ${e.message}`)
         }
-        errorReport += processStatus + '\n'
-        
-        errorReport += `━━━━━━━━━━━━━━━━━━━━━━━━━━\n`
-        errorReport += `🤖 *𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ* - Sistema de diagnóstico\n`
-        errorReport += `📅 ${new Date().toLocaleString()}`
-        
+
+        // Generar reporte
+        let errorReport = `🔍 *DIAGNÓSTICO DEL SISTEMA*\n\n`
+        errorReport += `*Bot:* 𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ 𝘽 ꂦ Ꮏ\n`
+        errorReport += `*Fecha:* ${new Date().toLocaleString()}\n`
+        errorReport += `*Chat:* ${m.isGroup ? await conn.getName(m.chat) : 'Privado'}\n\n`
+
+        errorReport += `📊 *ESTADO DE LA BASE DE DATOS:*\n`
+        if (dbErrors.length === 0) {
+            errorReport += `✅ Base de datos funcionando correctamente\n\n`
+        } else {
+            errorReport += dbErrors.join('\n') + '\n\n'
+        }
+
+        errorReport += `⚙️ *CONFIGURACIONES:*\n`
+        if (configErrors.length === 0) {
+            errorReport += `✅ Configuraciones funcionando correctamente\n\n`
+        } else {
+            errorReport += configErrors.join('\n') + '\n\n'
+        }
+
+        errorReport += `🔌 *PLUGINS:*\n`
+        if (pluginErrors.length === 0) {
+            errorReport += `✅ Plugins principales disponibles\n\n`
+        } else {
+            errorReport += pluginErrors.join('\n') + '\n\n'
+        }
+
+        // Estado general
+        let totalErrors = dbErrors.length + configErrors.filter(e => e.includes('❌')).length + pluginErrors.filter(e => e.includes('❌')).length
+        if (totalErrors === 0) {
+            errorReport += `🎉 *ESTADO GENERAL: ÓPTIMO*\n`
+            errorReport += `✅ No se encontraron errores críticos`
+        } else {
+            errorReport += `⚠️ *ESTADO GENERAL: ${totalErrors} ERRORES ENCONTRADOS*\n`
+            errorReport += `🔧 Usa .autofix para intentar reparar automáticamente`
+        }
+
         await conn.reply(m.chat, errorReport, m)
-        
+
     } catch (e) {
         console.error('Error en checkerrors:', e)
         await conn.reply(m.chat, `❌ Error al ejecutar diagnóstico: ${e.message}`, m)
     }
 }
 
-handler.help = ['checkerrors', 'diagnostico', 'errores']
-handler.tags = ['admin']
-handler.command = /^(checkerrors|diagnostico|errores|check)$/i
-handler.rowner = true
+handler.help = ['checkerrors', 'diagnostico']
+handler.tags = ['admin', 'tools']
+handler.command = ['checkerrors', 'diagnostico', 'checkbot', 'verificar']
+handler.admin = true
+handler.register = true
 
 export default handler

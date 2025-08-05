@@ -1,126 +1,189 @@
 
-import fs from 'fs'
-import path from 'path'
+let handler = async (m, { conn, isOwner, isAdmin }) => {
+    if (!isAdmin && !isOwner) {
+        return conn.reply(m.chat, '🚫 *Solo los administradores pueden usar este comando*', m)
+    }
 
-let handler = async (m, { conn, isOwner, isROwner }) => {
-    if (!isOwner && !isROwner) return conn.reply(m.chat, '❌ Este comando solo puede ser usado por el propietario.', m)
-    
     try {
-        let fixReport = `🔧 *AUTO-REPARACIÓN DEL BOT*\n\n`
-        fixReport += `━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`
+        await conn.reply(m.chat, '🔧 *Iniciando reparación automática del sistema...*', m)
         
-        let fixedCount = 0
+        let fixedIssues = []
+        let errors = []
         
-        // Reparar plugins con errores comunes
-        const pluginsDir = './plugins'
-        if (fs.existsSync(pluginsDir)) {
-            const files = fs.readdirSync(pluginsDir)
+        // Verificar y reparar base de datos
+        try {
+            if (!global.db) {
+                global.db = { data: {} }
+                fixedIssues.push('✅ Base de datos global inicializada')
+            }
             
-            for (let file of files) {
-                if (file.endsWith('.js')) {
-                    try {
-                        const filePath = path.join(pluginsDir, file)
-                        let content = fs.readFileSync(filePath, 'utf8')
-                        let fixed = false
-                        
-                        // Fix 1: Export incompleto
-                        if (content.includes('export default') && content.match(/export default\s*$/m)) {
-                            content = content.replace(/export default\s*$/m, 'export default handler')
+            if (!global.db.data) {
+                global.db.data = {}
+                fixedIssues.push('✅ Estructura de datos creada')
+            }
+            
+            if (!global.db.data.chats) {
+                global.db.data.chats = {}
+                fixedIssues.push('✅ Configuración de chats inicializada')
+            }
+            
+            if (!global.db.data.users) {
+                global.db.data.users = {}
+                fixedIssues.push('✅ Datos de usuarios inicializados')
+            }
+            
+            if (!global.db.data.settings) {
+                global.db.data.settings = {}
+                fixedIssues.push('✅ Configuraciones del bot inicializadas')
+            }
+        } catch (e) {
+            errors.push(`❌ Error reparando base de datos: ${e.message}`)
+        }
+        
+        // Reparar configuración del chat actual
+        if (m.isGroup) {
+            try {
+                let chat = global.db.data.chats[m.chat]
+                if (!chat || typeof chat !== 'object') {
+                    global.db.data.chats[m.chat] = {
+                        isBanned: false,
+                        welcome: true,
+                        detect: true,
+                        antiLink: false,
+                        antiLink2: false,
+                        antiBot: false,
+                        antiBot2: false,
+                        antifake: false,
+                        nsfw: false,
+                        autosticker: false,
+                        autoresponder: false,
+                        delete: false,
+                        modoadmin: false,
+                        autolevelup: false,
+                        reaction: false,
+                        expired: 0,
+                        sAutoresponder: '',
+                        per: []
+                    }
+                    fixedIssues.push('✅ Configuración del grupo reparada')
+                } else {
+                    // Verificar propiedades faltantes
+                    let defaultConfig = {
+                        isBanned: false,
+                        welcome: true,
+                        detect: true,
+                        antiLink: false,
+                        antiLink2: false,
+                        antiBot: false,
+                        antiBot2: false,
+                        antifake: false,
+                        nsfw: false,
+                        autosticker: false,
+                        autoresponder: false,
+                        delete: false,
+                        modoadmin: false,
+                        autolevelup: false,
+                        reaction: false,
+                        expired: 0,
+                        sAutoresponder: '',
+                        per: []
+                    }
+                    
+                    let fixed = false
+                    for (let [key, value] of Object.entries(defaultConfig)) {
+                        if (!(key in chat)) {
+                            chat[key] = value
                             fixed = true
                         }
-                        
-                        // Fix 2: Console incompleto
-                        if (content.match(/console\.\s*$/m)) {
-                            content = content.replace(/console\.\s*$/m, 'console.error("Error en plugin")')
-                            fixed = true
-                        }
-                        
-                        // Fix 3: Imports de axios faltantes
-                        if (content.includes('axios') && !content.includes('import axios')) {
-                            content = `import axios from 'axios'\n\n${content}`
-                            fixed = true
-                        }
-                        
-                        // Fix 4: Handler sin tags
-                        if (content.includes('handler.command') && !content.includes('handler.tags')) {
-                            const commandMatch = content.match(/handler\.command\s*=/)
-                            if (commandMatch) {
-                                const insertPos = content.indexOf(commandMatch[0])
-                                content = content.slice(0, insertPos) + 
-                                         'handler.tags = [\'general\']\n' + 
-                                         content.slice(insertPos)
-                                fixed = true
-                            }
-                        }
-                        
-                        if (fixed) {
-                            fs.writeFileSync(filePath, content, 'utf8')
-                            fixedCount++
-                            fixReport += `✅ Reparado: ${file}\n`
-                        }
-                        
-                    } catch (e) {
-                        fixReport += `❌ Error al reparar ${file}: ${e.message}\n`
+                    }
+                    
+                    if (fixed) {
+                        fixedIssues.push('✅ Propiedades faltantes del grupo añadidas')
                     }
                 }
-            }
-        }
-        
-        // Crear carpetas faltantes
-        const requiredDirs = ['plugins', 'lib', 'src', 'tmp', 'database']
-        for (let dir of requiredDirs) {
-            if (!fs.existsSync(dir)) {
-                try {
-                    fs.mkdirSync(dir, { recursive: true })
-                    fixReport += `📁 Creada carpeta: ${dir}\n`
-                    fixedCount++
-                } catch (e) {
-                    fixReport += `❌ Error al crear ${dir}: ${e.message}\n`
-                }
-            }
-        }
-        
-        // Verificar y crear database.json si no existe
-        if (!fs.existsSync('./database.json')) {
-            try {
-                const defaultDB = {
-                    users: {},
-                    chats: {},
-                    stats: {},
-                    msgs: {},
-                    sticker: {},
-                    settings: {}
-                }
-                fs.writeFileSync('./database.json', JSON.stringify(defaultDB, null, 2))
-                fixReport += `📄 Creado database.json\n`
-                fixedCount++
             } catch (e) {
-                fixReport += `❌ Error al crear database.json: ${e.message}\n`
+                errors.push(`❌ Error reparando configuración del grupo: ${e.message}`)
             }
         }
         
-        fixReport += `\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n`
-        fixReport += `📊 *RESUMEN:*\n`
-        fixReport += `🔧 Archivos reparados: ${fixedCount}\n`
-        fixReport += `⚡ Estado: ${fixedCount > 0 ? 'Reparaciones realizadas' : 'No se necesitaron reparaciones'}\n\n`
-        fixReport += `🤖 *𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ* - Auto-reparación completada\n`
-        fixReport += `📅 ${new Date().toLocaleString()}`
-        
-        await conn.reply(m.chat, fixReport, m)
-        
-        if (fixedCount > 0) {
-            await conn.reply(m.chat, '♻️ Se recomienda reiniciar el bot para aplicar los cambios.', m)
+        // Reparar configuración del usuario
+        try {
+            let user = global.db.data.users[m.sender]
+            if (!user || typeof user !== 'object') {
+                global.db.data.users[m.sender] = {
+                    afkTime: -1,
+                    afkReason: '',
+                    limit: 20,
+                    exp: 0,
+                    level: 0,
+                    role: 'Novato',
+                    registered: false,
+                    premium: false,
+                    premiumTime: 0
+                }
+                fixedIssues.push('✅ Configuración del usuario reparada')
+            }
+        } catch (e) {
+            errors.push(`❌ Error reparando configuración del usuario: ${e.message}`)
         }
+        
+        // Reparar configuración del bot
+        try {
+            let botConfig = global.db.data.settings[conn.user.jid]
+            if (!botConfig || typeof botConfig !== 'object') {
+                global.db.data.settings[conn.user.jid] = {
+                    self: false,
+                    restrict: true,
+                    jadibotmd: true,
+                    antiPrivate: false,
+                    autoread: false,
+                    status: 0
+                }
+                fixedIssues.push('✅ Configuración del bot reparada')
+            }
+        } catch (e) {
+            errors.push(`❌ Error reparando configuración del bot: ${e.message}`)
+        }
+        
+        // Generar reporte
+        let repairReport = `🔧 *REPARACIÓN AUTOMÁTICA COMPLETADA*\n\n`
+        repairReport += `*Bot:* 𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ 𝘽 ꂦ Ꮏ\n`
+        repairReport += `*Fecha:* ${new Date().toLocaleString()}\n`
+        repairReport += `*Chat:* ${m.isGroup ? await conn.getName(m.chat) : 'Privado'}\n\n`
+        
+        if (fixedIssues.length > 0) {
+            repairReport += `✅ *PROBLEMAS REPARADOS:*\n`
+            repairReport += fixedIssues.join('\n') + '\n\n'
+        }
+        
+        if (errors.length > 0) {
+            repairReport += `❌ *ERRORES NO REPARABLES:*\n`
+            repairReport += errors.join('\n') + '\n\n'
+        }
+        
+        if (fixedIssues.length === 0 && errors.length === 0) {
+            repairReport += `🎉 *No se encontraron problemas que reparar*\n`
+            repairReport += `✅ El sistema está funcionando correctamente`
+        } else if (fixedIssues.length > 0 && errors.length === 0) {
+            repairReport += `🎉 *REPARACIÓN EXITOSA*\n`
+            repairReport += `✅ Todos los problemas fueron solucionados`
+        } else {
+            repairReport += `⚠️ *REPARACIÓN PARCIAL*\n`
+            repairReport += `🔧 Algunos problemas requieren intervención manual`
+        }
+        
+        await conn.reply(m.chat, repairReport, m)
         
     } catch (e) {
         console.error('Error en autofix:', e)
-        await conn.reply(m.chat, `❌ Error al ejecutar auto-reparación: ${e.message}`, m)
+        await conn.reply(m.chat, `❌ Error durante la reparación: ${e.message}`, m)
     }
 }
 
-handler.help = ['autofix', 'reparar', 'fix']
-handler.tags = ['admin']
-handler.command = /^(autofix|reparar|fix|autoreparar)$/i
-handler.rowner = true
+handler.help = ['autofix', 'reparar']
+handler.tags = ['admin', 'tools']
+handler.command = ['autofix', 'reparar', 'fix', 'arreglar']
+handler.admin = true
+handler.register = true
 
 export default handler
