@@ -8,7 +8,7 @@ channel = "stable-25_05"
 run = ["sh", "-c", "npm start"]
 
 [workflows]
-runButton = "Ejecutar Bot"
+runButton = "Ejecutar Bot Limpio"
 
 [[workflows.workflow]]
 name = "Ejecutar Bot"
@@ -18,6 +18,19 @@ mode = "sequential"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "npm install"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node index.js"
+
+[[workflows.workflow]]
+name = "Ejecutar Bot Limpio"
+author = 45842147
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm install --legacy-peer-deps"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"

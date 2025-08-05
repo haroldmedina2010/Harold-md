@@ -30,15 +30,18 @@ let pp2 = 'https://files.catbox.moe/erm82k.mp4';
 let pp3 = 'https://files.catbox.moe/9m1nkp.mp4';
 let pp4 =
 'https://files.catbox.moe/rzijb5.mp4';
-const gifs = [pp1, pp2, pp3, pp4];
-const gif = gifs[Math.floor(Math.random() * gifs.length)];
-// Enviamos el mensaje con el gif y el mensaje correspondiente
-let mentions = [who]; // Mencionamos al usuario que se ha citado o mencionado
-conn.sendMessage(m.chat, { video: { url: gif }, gifPlayback: true, caption: str, mentions }, { quoted: m });
+const videos = [pp1, pp2, pp3, pp4];
+let randomVideo = videos[Math.floor(Math.random() * videos.length)];
+
+conn.sendMessage(m.chat, { video: { url: randomVideo }, gifPlayback: true, caption: str, mentions: [who] }, { quoted: m });
+} else {
+conn.reply(m.chat, str, m);
 }
-}
+};
+
 handler.help = ['agarrarnalgas @tag'];
 handler.tags = ['emox'];
-handler.command = ['agarrarnalgas'];
+handler.command = ['agarrarnalgas', 'grabass'];
 handler.group = true;
+
 export default handler;

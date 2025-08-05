@@ -39,11 +39,10 @@ await m.react(done)
 } catch {
 await conn.reply(m.chat, '🌱 Ocurrió un error', m, fake)
 await m.react(error)
-}}
-
+}
+}
 handler.help = ['npmjs']
 handler.tags = ['buscador']
-handler.command = ['npmjs']
-handler.register = true
-handler.cookies = 1
+handler.command = ['npmjs', 'npm']
+
 export default handler

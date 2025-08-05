@@ -53,4 +53,4 @@ handler.tags = ['emox'];
 handler.command = ['hug','abrazar'];
 handler.group = true;
 
-export default handler;
+export default handler;ult handler;
