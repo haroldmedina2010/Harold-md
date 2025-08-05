@@ -28,7 +28,7 @@ if (filesDeleted === 0) {
 await conn.reply(m.chat, '🧡 *No se encontró ningún archivo que incluya la ID del chat*', m, rcanal, )
 } else {
 await conn.reply(m.chat, `🧡 *Se eliminaron ${filesDeleted} archivos de sesión*`, m, rcanal, )
-conn.reply(m.chat, `🧡 *¡Hola! Soy ${botname}*`, m, rcanal, )
+conn.reply(m.chat, `🧡 *¡Hola! Soy 𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ*`, m, rcanal, )
 }
 } catch (err) {
 console.error('Error al leer la carpeta o los archivos de sesión:', err)
