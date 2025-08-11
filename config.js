@@ -1,8 +1,8 @@
-import {watchFile, unwatchFile} from 'fs';
+import { watchFile, unwatchFile } from 'fs';
 import chalk from 'chalk';
-import {fileURLToPath} from 'url';
-import fs from 'fs'; 
-import cheerio from 'cheerio';
+import { fileURLToPath } from 'url';
+import fs from 'fs';
+import * as cheerio from 'cheerio';
 import fetch from 'node-fetch';
 import axios from 'axios';
 import moment from 'moment-timezone';
@@ -16,9 +16,9 @@ global.botNumber = '' //Ejemplo: de 50769214785
 //*──ׄ✰─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─*
 
 global.owner = [
-  ['50764735869', '🩵 𝗖𝗿𝗲𝗮𝗱𝗼𝗿 ', true],
   ['50764735869', '𓆩‌۫᷼ ִֶָღܾ݉͢𝐇ꪖ𝐫o͟𝐥𝐝𓆪', true],
-  ['573133374132', '💖💝 Y⃟o⃟S⃟o⃟y⃟ Y⃟o⃟ 💝 💖 ', true]
+  ['573133374132', '💖💝 Y⃟o⃟S⃟o⃟y⃟ Y⃟o⃟ 💝 💖 ', true],
+  ['51921826291', 'SoyMaycol', true]
 ]
 
 //*─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─*
