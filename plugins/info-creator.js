@@ -13,20 +13,23 @@ let handler = async (m, { conn }) => {
     }
   ];
 
+  const canalInfo = {
+    title: 'Ver canal oficial 🧡',
+    body: 'Haz clic para acceder al canal del bot',
+    thumbnailUrl: 'https://files.catbox.moe/26kguo.jpg',
+    sourceUrl: 'https://whatsapp.com/channel/0029VbAXuUtB4hdYWC6m2R1h',
+    mediaType: 1,
+    renderLargerThumbnail: true
+  };
+
+  // Enviar contacto con preview
   await conn.sendMessage(m.chat, {
     contacts: {
       displayName: `${list.length} Contacto`,
       contacts: list
     },
     contextInfo: {
-      externalAdReply: {
-        title: '🧡 Contacto oficial de 𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ',
-        body: 'Creador y soporte técnico',
-        thumbnailUrl: 'https://files.catbox.moe/26kguo.jpg',
-        sourceUrl: 'https://whatsapp.com/channel/0029VbAXuUtB4hdYWC6m2R1h',
-        mediaType: 1,
-        renderLargerThumbnail: true
-      }
+      externalAdReply: canalInfo
     }
   }, { quoted: m });
 
@@ -46,17 +49,11 @@ https://WA.me/573189035921?text=
 🏐#️⃣𐒐Ꮼ́𐒄ᏋᏒ𐒀 DEL 𝗕𝗢𝗧🤖🧡:
 https://WA.me/573189035921?text=.code`;
 
+  // Enviar mensaje decorado con preview al final
   await conn.sendMessage(m.chat, {
     text: txt,
     contextInfo: {
-      externalAdReply: {
-        title: 'Ver canal oficial 🧡',
-        body: 'Haz clic para acceder al canal del bot',
-        thumbnailUrl: 'https://files.catbox.moe/26kguo.jpg',
-        sourceUrl: 'https://whatsapp.com/channel/0029VbAXuUtB4hdYWC6m2R1h',
-        mediaType: 1,
-        renderLargerThumbnail: true
-      }
+      externalAdReply: canalInfo
     }
   }, { quoted: m });
 };
