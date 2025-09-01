@@ -77,12 +77,12 @@ global.moneda = '𝙨𝙝oyocoins'
 global.gp4 = 'https://chat.whatsapp.com/JkpwB3J7qMQF1uxomv5U1e?mode=ac_t' //Grupo Oficial De 𝙎𝙃𝙊𝙔𝙊
 global.gp1 = 'https://chat.whatsapp.com/CIAoJ4Ze2lm7jf4WZCeh7E?mode=ac_c' //Grupo 2
 global.gp2 = 'https://chat.whatsapp.com/CIAoJ4Ze2lm7jf4WZCeh7E?mode=ac_c'//
-global.channel = 'https://whatsapp.com/channel/0029Vb6MFShKGGGBWePRFc0U' //Canal Oficial
-global.channel2 = 'https://whatsapp.com/channel/0029Vb6MFShKGGGBWePRFc0U' //Canal test 
+global.channel = 'https://whatsapp.com/channel/0029VbAXuUtB4hdYWC6m2R1h' //Canal Oficial
+global.channel2 = 'https://whatsapp.com/channel/0029VbAXuUtB4hdYWC6m2R1h' //Canal test 
 global.yt = 'https://www.youtube.com' //Canal De Youtube
 global.md = 'https://github.com' //Github Oficial
 global.correo = ''
-global.cn ='https://whatsapp.com/channel/0029Vb6MFShKGGGBWePRFc0U';
+global.cn ='https://whatsapp.com/channel/0029VbAXuUtB4hdYWC6m2R1h';
 
 //*─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─*
 
