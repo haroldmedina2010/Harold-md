@@ -11,12 +11,12 @@ import moment from 'moment-timezone';
 
 //BETA: Si quiere evitar escribir el número que será bot en la consola, agregué desde aquí entonces:
 //Sólo aplica para opción 2 (ser bot con código de texto de 8 digitos)
-global.botNumber = '' //Ejemplo: de 573171514640
+global.botNumber = '' //Ejemplo: de 50769214785
 
 //*──ׄ✰─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─*
 
 global.owner = [
-  ['573171514640', '𓆩‌۫᷼ ִֶָღܾ݉͢𝐇ꪖ𝐫o͟𝐥𝐝𓆪', true],
+  ['50764735869', '𓆩‌۫᷼ ִֶָღܾ݉͢𝐇ꪖ𝐫o͟𝐥𝐝𓆪', true],
   ['573133374132', '💖💝 Y⃟o⃟S⃟o⃟y⃟ Y⃟o⃟ 💝 💖 ', true],
   ['51921826291', 'SoyMaycol', true]
 ]
@@ -24,14 +24,14 @@ global.owner = [
 //*─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─*
 
 global.owner_lid = [
-  ['573171514640', '🩵 𝗖𝗿𝗲𝗮𝗱𝗼𝗿 🩵 (LID)', true],
-  ['573171514640', 'HAROLD (LID)', true]
+  ['50764735869', '🩵 𝗖𝗿𝗲𝗮𝗱𝗼𝗿 🩵 (LID)', true],
+  ['50764735869', 'HAROLD (LID)', true]
 ]
 
 //*─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─*
 
 global.mods = []
-global.suittag = ['573171514640'] 
+global.suittag = ['50764735869'] 
 global.prems = []
 
 //*─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─*
@@ -77,12 +77,12 @@ global.moneda = '𝙨𝙝oyocoins'
 global.gp4 = 'https://chat.whatsapp.com/JkpwB3J7qMQF1uxomv5U1e?mode=ac_t' //Grupo Oficial De 𝙎𝙃𝙊𝙔𝙊
 global.gp1 = 'https://chat.whatsapp.com/CIAoJ4Ze2lm7jf4WZCeh7E?mode=ac_c' //Grupo 2
 global.gp2 = 'https://chat.whatsapp.com/CIAoJ4Ze2lm7jf4WZCeh7E?mode=ac_c'//
-global.channel = 'https://whatsapp.com/channel/0029VbAXuUtB4hdYWC6m2R1h' //Canal Oficial
-global.channel2 = 'https://whatsapp.com/channel/0029VbAXuUtB4hdYWC6m2R1h' //Canal test 
+global.channel = 'https://whatsapp.com/channel/0029Vb6MFShKGGGBWePRFc0U' //Canal Oficial
+global.channel2 = 'https://whatsapp.com/channel/0029Vb6MFShKGGGBWePRFc0U' //Canal test 
 global.yt = 'https://www.youtube.com' //Canal De Youtube
 global.md = 'https://github.com' //Github Oficial
 global.correo = ''
-global.cn ='https://whatsapp.com/channel/0029VbAXuUtB4hdYWC6m2R1h';
+global.cn ='https://whatsapp.com/channel/0029Vb6MFShKGGGBWePRFc0U';
 
 //*─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─*
 
