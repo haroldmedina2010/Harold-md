@@ -2,8 +2,8 @@ import { WAMessageStubType } from '@whiskeysockets/baileys'
 import fetch from 'node-fetch'
 
 const channelRD = {
-  id: "120363402552103115@newsletter", // Cambia por tu canal si quieres
-  name: "𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ✰ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⬣"
+  id: "120363419817597119@newsletter", // Cambia por tu canal si quieres
+  name: "✞😍📹𝗩𝗜𝗗𝗘𝗢 𝗗𝗘 𝗧𝗜𝗞𝗧𝗢𝗞📹😍✞ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⬣"
 };
 
 export async function before(m, { conn, participants, groupMetadata }) {
