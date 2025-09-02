@@ -28,18 +28,18 @@ console.log(`Error : ${e}`)
 }}
   
 //creador y otros
-global.creador = 'Wa.me/50764735869'
+global.creador = 'Wa.me/573171514640'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
 global.asistencia = 'Wa.me/50764735869'
 global.namechannel = '𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ'
-global.namegrupo = '𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ 𝐆𝐫𝐮𝐩𝐨'
+global.namegrupo = '✨🌸Ｓｙａ Ｂｏｔ Ｐｒｉｎｃｉｐａｌ Ｇｒｕｐｏ🌸✨'
 global.namecomu = '𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ'
 global.listo = ' *Aquí tienes ᕕ( ᐛ )ᕗ*'
 
 //Ids channel
-global.idchannel = '120363402552103115@newsletter'
-global.canalIdM = ["120363402552103115@newsletter", "120363402552103115@newsletter"]
-global.canalNombreM = ["𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥", "𝙎𝙃𝙊𝙔𝙊 𝙃𝙄𝙉𝘼𝙏𝘼 ოძ  𝘽 ꂦ Ꮏ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥"]
+global.idchannel = '120363419817597119@newsletter'
+global.canalIdM = ["120363419817597119@newsletter", "120363419817597119@newsletter"]
+global.canalNombreM = ["✞😍📹𝗩𝗜𝗗𝗘𝗢 𝗗𝗘 𝗧𝗜𝗞𝗧𝗢𝗞📹😍✞", "✞😍📹𝗩𝗜𝗗𝗘𝗢 𝗗𝗘 𝗧𝗜𝗞𝗧𝗢𝗞📹😍✞ chanel"]
 global.channelRD = await getRandomChannel()
 
 global.d = new Date(new Date + 3600000)
@@ -64,8 +64,8 @@ global.emojis = [emoji, emoji2, emoji3, emoji4].getRandom()
 
 
 //Enlaces
-var canal = 'https://whatsapp.com/channel/0029Vb6MFShKGGGBWePRFc0U'  
-let canal2 = 'https://whatsapp.com/channel/0029Vb6MFShKGGGBWePRFc0U'
+var canal = 'https://whatsapp.com/channel/0029VbBXf3KFnSz33s4xFx12'  
+let canal2 = 'https://whatsapp.com/channel/0029VbAXuUtB4hdYWC6m2R1h'
 var git = 'https://github.com' 
 var youtube = '' 
 var github = 'https://github.com' 
