@@ -10,7 +10,7 @@
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/message/your-number)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://javascript.com)
 [![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
-[![Baileys](https://img.shields.io/badge/Baileys-6.7.8-blue?style=for-the-badge)](https://github.com/WhiskeySockets/Baileys)
+[![Baileys](https://img.shields.io/badge/Baileys-7.0.0--rc.5-blue?style=for-the-badge)](https://github.com/WhiskeySockets/Baileys)
 
 ---
 
@@ -250,7 +250,7 @@ GOOGLE_API_KEY=tu_google_key
 
 ### 🛠️ Tecnologías Utilizadas
 - **Runtime:** Node.js v18+
-- **Library:** @whiskeysockets/baileys v6.7.8
+- **Library:** @whiskeysockets/baileys v7.0.0-rc.5
 - **Database:** MongoDB / LowDB
 - **Language:** JavaScript ES6+
 - **Framework:** Express.js (Dashboard)
