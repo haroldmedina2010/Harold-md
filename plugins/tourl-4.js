@@ -1,41 +1,59 @@
-import uploadFile from '../lib/uploadFile.js'
-import uploadImage from '../lib/uploadImage.js'
-import fetch from 'node-fetch'
+import fs from 'fs';
+import path from 'path';
+import axios from 'axios';
 
-let handler = async (m) => {
-  let q = m.quoted ? m.quoted : m
-  let mime = (q.msg || q).mimetype || ''
-  if (!mime) return conn.reply(m.chat, '🍃 Responde a una *Imagen* o *Vídeo.*', m)
+const GITHUB_TOKEN = '';
+const REPO_OWNER = '';
+const REPO_NAME = '';
+const BRANCH = 'main';
+
+async function uploadToGitHub(fileBuffer, fileName) {
+  const fileData = fileBuffer.toString('base64');
+  const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${fileName}`;
+  const res = await axios.put(
+    url,
+    {
+      message: `Upload ${fileName}`,
+      content: fileData,
+      branch: BRANCH,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${GITHUB_TOKEN}`,
+        'Content-Type': 'application/json',
+      },
+    }
+  );
+  return res.data.content.html_url;
+}
+
+let handler = async (m, { conn, usedPrefix, command }) => {
   try {
-  let media = await q.download()
-  let isTele = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
-  let link = await (isTele ? uploadImage : uploadFile)(media)
-  let img = await (await fetch(`${link}`)).buffer()
-  let txt = `乂  *L I N K - C A T B O X*  乂\n\n`
-      txt += `*» Enlace* : ${link}\n`
-      txt += `*» Tamaño* : ${formatBytes(media.length)}\n`
-      txt += `*» Expiración* : ${isTele ? 'No expira' : 'Desconocido'}\n\n`
-      txt += `> *${dev}*`
+    const quoted = m.quoted || m;
+    const mime = quoted.mimetype || '';
+    if (!mime) return m.reply(`☆ Responde a un archivo con el comando *${usedPrefix + command}*.`);
 
-await conn.reply(m.chat, txt, m, rcanal)
-} catch (e) {
-await conn.reply(m.chat, '⚠︎ *Error:* ' + e, m)
-}}
-handler.help = ['tourl2']
-handler.tags = ['tools']
-handler.command = ['tourl2', 'catbox']
-export default handler
+    const media = await quoted.download();
+    if (!media) return m.reply('⚔ No se pudo descargar el archivo.');
 
-function formatBytes(bytes) {
-  if (bytes === 0) {
-    return '0 B';
+    const ext = mime.split('/')[1] || 'bin';
+    const fileName = `${Date.now()}.${ext}`;
+
+    await m.react('🕓');
+
+    const url = await uploadToGitHub(media, fileName);
+
+    await m.react('✔️');
+
+    await m.reply(`❏ *UPLOADER*\n> ❍ :: El archivo se subio correctamente\n${url}`);
+  } catch (error) {
+    console.error(error);
+    m.reply('Hubo un error al intentar subir el archivo.');
   }
-  const sizes = ['B', 'KB', 'MB', 'GB', 'TB']
-  const i = Math.floor(Math.log(bytes) / Math.log(1024))
-  return `${(bytes / 1024 ** i).toFixed(2)} ${sizes[i]}`;
-}
+};
 
-async function shortUrl(url) {
-        let res = await fetch(`https://tinyurl.com/api-create.php?url=${url}`)
-        return await res.text()
-}
+handler.help = ['upload'];
+handler.tags = ['tools'];
+handler.command = ['upload', 'tourl'];
+
+export default handler;
